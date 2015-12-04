@@ -1,0 +1,54 @@
+Starttime is 2015-11-04 20:11:17.620023
+Last login: Wed Nov  4 20:06:25 2015 from ops.tcloud.com
+PS1='[\u@192.168.3.198 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[ldap197@mie-bj-ldap-3 ~]$ PS1='[\u@192.168.3.198 \W]\$ '
+[ldap197@192.168.3.198 ~]$ clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.198 done. Enjoy it.[0m
+[ldap197@192.168.3.198 ~]$ pwd
+/home/ldap197
+[ldap197@192.168.3.198 ~]$ ls -al
+total 24
+drwxr-xr-x   2 ldap197 ldap197 4096 Nov  4 19:31 [0m[01;34m.[0m
+drwxr-xr-x. 10 root    root    4096 Nov  4 19:31 [01;34m..[0m
+-rw-------   1 ldap197 ldap197 1027 Nov  4 20:07 .bash_history
+-rw-r--r--   1 ldap197 ldap197   18 Nov  4 19:31 .bash_logout
+-rw-r--r--   1 ldap197 ldap197  176 Nov  4 19:31 .bash_profile
+-rw-r--r--   1 ldap197 ldap197  124 Nov  4 19:31 .bashrc
+[m[ldap197@192.168.3.198 ~]$ cd ..
+[ldap197@192.168.3.198 home]$ ll
+total 28
+drwxr-xr-x  2    5024    5024 4096 Oct 28 14:44 [0m[01;34mldap196[0m
+drwxr-xr-x  2 ldap197 ldap197 4096 Nov  4 19:31 [01;34mldap197[0m
+drwxr-xr-x  2    5003    5003 4096 Oct 28 14:48 [01;34mldap198[0m
+drwx------. 3 tcluser tcluser 4096 Jun 30 13:41 [01;34mtcluser[0m
+drwxr-xr-x  2    1000    1000 4096 Oct 27 18:35 [01;34mtestuser[0m
+drwx------  2 work    work    4096 Oct 28 16:21 [01;34mwork[0m
+drwx------  2 zabbix  zabbix  4096 Jun 30 13:47 [01;34mzabbix[0m
+[m[ldap197@192.168.3.198 home]$ ls -al
+total 40
+drwxr-xr-x. 10 root    root    4096 Nov  4 19:31 [0m[01;34m.[0m
+dr-xr-xr-x. 27 root    root    4096 Jun 30 13:50 [01;34m..[0m
+drwxr-xr-x   2    5024    5024 4096 Oct 28 14:44 [01;34mldap196[0m
+drwxr-xr-x   2 ldap197 ldap197 4096 Nov  4 19:31 [01;34mldap197[0m
+drwxr-xr-x   2    5003    5003 4096 Oct 28 14:48 [01;34mldap198[0m
+drwxr-xr-x   2 work    work    4096 Jul 16 14:29 [01;34m.ssh[0m
+drwx------.  3 tcluser tcluser 4096 Jun 30 13:41 [01;34mtcluser[0m
+drwxr-xr-x   2    1000    1000 4096 Oct 27 18:35 [01;34mtestuser[0m
+drwx------   2 work    work    4096 Oct 28 16:21 [01;34mwork[0m
+drwx------   2 zabbix  zabbix  4096 Jun 30 13:47 [01;34mzabbix[0m
+[m[ldap197@192.168.3.198 home]$ id dl[K[Kldap197
+uid=5025(ldap197) gid=5025(ldap197) groups=5025(ldap197)
+[ldap197@192.168.3.198 home]$ pwd
+/home
+[ldap197@192.168.3.198 home]$ ll
+total 28
+drwxr-xr-x  2    5024    5024 4096 Oct 28 14:44 [0m[01;34mldap196[0m
+drwxr-xr-x  2 ldap197 ldap197 4096 Nov  4 19:31 [01;34mldap197[0m
+drwxr-xr-x  2    5003    5003 4096 Oct 28 14:48 [01;34mldap198[0m
+drwx------. 3 tcluser tcluser 4096 Jun 30 13:41 [01;34mtcluser[0m
+drwxr-xr-x  2    1000    1000 4096 Oct 27 18:35 [01;34mtestuser[0m
+drwx------  2 work    work    4096 Oct 28 16:21 [01;34mwork[0m
+drwx------  2 zabbix  zabbix  4096 Jun 30 13:47 [01;34mzabbix[0m
+[m[ldap197@192.168.3.198 home]$ logout
+Endtime is 2015-11-04 20:11:38.194916

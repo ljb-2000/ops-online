@@ -1,0 +1,40 @@
+Starttime is 2015-11-13 17:19:00.708369
+Last login: Tue Nov 10 14:33:37 2015 from ops.tcloud.com
+PS1='[\u@192.168.3.198 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[ldap196@mie-bj-ldap-3 ~]$ PS1='[\u@192.168.3.198 \W]\$ '
+[ldap196@192.168.3.198 ~]$ clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.198 done. Enjoy it.[0m
+[ldap196@192.168.3.198 ~]$ sudo su -
+[root@mie-bj-ldap-3 ~]# cd
+[root@mie-bj-ldap-3 ~]# ll
+total 72
+-rw-r--r--  1 root root  3762 Jul 21 18:53 197.crt
+-rw-r--r--  1 root root   660 Jul 21 17:35 197.csr
+-rw-r--r--  1 root root   891 Jul 21 17:33 197.key
+-rw-------. 1 root root  1156 Sep 23  2014 anaconda-ks.cfg
+-rw-r--r--  1 root root   981 Jul 21 17:31 CA.crt
+-rw-r--r--  1 root root  1733 Oct 26 15:23 client_setup.sh
+drwxr-xr-x  3 root root  4096 Aug 21 15:00 [0m[01;34mhids[0m
+-rw-r--r--. 1 root root 27312 Sep 23  2014 install.log
+-rw-r--r--. 1 root root  7572 Sep 23  2014 install.log.syslog
+lrwxrwxrwx. 1 root root    22 Sep 23  2014 [01;36mjava[0m -> [01;32m/etc/alternatives/java[0m
+drwxr-xr-x  2 root root  4096 Jun 30 13:42 [01;34mshell[0m
+[m[root@mie-bj-ldap-3 ~]# pwd
+/root
+[root@mie-bj-ldap-3 ~]# ll
+total 72
+-rw-r--r--  1 root root  3762 Jul 21 18:53 197.crt
+-rw-r--r--  1 root root   660 Jul 21 17:35 197.csr
+-rw-r--r--  1 root root   891 Jul 21 17:33 197.key
+-rw-------. 1 root root  1156 Sep 23  2014 anaconda-ks.cfg
+-rw-r--r--  1 root root   981 Jul 21 17:31 CA.crt
+-rw-r--r--  1 root root  1733 Oct 26 15:23 client_setup.sh
+drwxr-xr-x  3 root root  4096 Aug 21 15:00 [0m[01;34mhids[0m
+-rw-r--r--. 1 root root 27312 Sep 23  2014 install.log
+-rw-r--r--. 1 root root  7572 Sep 23  2014 install.log.syslog
+lrwxrwxrwx. 1 root root    22 Sep 23  2014 [01;36mjava[0m -> [01;32m/etc/alternatives/java[0m
+drwxr-xr-x  2 root root  4096 Jun 30 13:42 [01;34mshell[0m
+[m[root@mie-bj-ldap-3 ~]# logout
+[ldap196@192.168.3.198 ~]$ logout
+Endtime is 2015-11-13 17:19:50.918943

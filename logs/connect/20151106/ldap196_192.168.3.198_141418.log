@@ -1,0 +1,35 @@
+Starttime is 2015-11-06 14:14:18.623684
+Creating home directory for ldap196.
+PS1='[\u@192.168.3.198 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[ldap196@mie-bj-ldap-3 ~]$ PS1='[\u@192.168.3.198 \W]\$ '
+[ldap196@192.168.3.198 ~]$ clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.198 done. Enjoy it.[0m
+[ldap196@192.168.3.198 ~]$ ls-al[K[K[K -al
+total 20
+drwxr-xr-x  2 ldap196 ldap196 4096 Nov  6 14:14 [0m[01;34m.[0m
+drwxr-xr-x. 7 root    root    4096 Nov  6 14:14 [01;34m..[0m
+-rw-r--r--  1 ldap196 ldap196   18 Nov  6 14:14 .bash_logout
+-rw-r--r--  1 ldap196 ldap196  176 Nov  6 14:14 .bash_profile
+-rw-r--r--  1 ldap196 ldap196  124 Nov  6 14:14 .bashrc
+[m[ldap196@192.168.3.198 ~]$ sd[K[Ksudo su -
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for ldap196: 
+[ldap196@192.168.3.198 ~]$ ll
+total 0
+[ldap196@192.168.3.198 ~]$ ls -al
+total 20
+drwxr-xr-x  2 ldap196 ldap196 4096 Nov  6 14:14 [0m[01;34m.[0m
+drwxr-xr-x. 7 root    root    4096 Nov  6 14:14 [01;34m..[0m
+-rw-r--r--  1 ldap196 ldap196   18 Nov  6 14:14 .bash_logout
+-rw-r--r--  1 ldap196 ldap196  176 Nov  6 14:14 .bash_profile
+-rw-r--r--  1 ldap196 ldap196  124 Nov  6 14:14 .bashrc
+[m[ldap196@192.168.3.198 ~]$ logout
+Endtime is 2015-11-06 14:15:00.174809

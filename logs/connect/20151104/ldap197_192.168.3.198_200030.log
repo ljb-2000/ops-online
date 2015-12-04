@@ -1,0 +1,19 @@
+Starttime is 2015-11-04 20:00:30.073831
+Last login: Wed Nov  4 19:58:37 2015 from ops.tcloud.com
+PS1='[\u@192.168.3.198 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[ldap197@mie-bj-ldap-3 ~]$ PS1='[\u@192.168.3.198 \W]\$ '
+[ldap197@192.168.3.198 ~]$ clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.198 done. Enjoy it.[0m
+[ldap197@192.168.3.198 ~]$ sudo su -
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for ldap197: 
+[ldap197@192.168.3.198 ~]$ logout
+Endtime is 2015-11-04 20:01:14.200885

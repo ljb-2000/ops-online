@@ -1,0 +1,9 @@
+Starttime is 2015-11-06 14:15:06.961060
+Creating home directory for ldap196.
+PS1='[\u@192.168.3.199 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.199 done. Enjoy it.\033[0m'
+[ldap196@mie-bj-ldap-4 ~]$ PS1='[\u@192.168.3.199 \W]\$ '
+[ldap196@192.168.3.199 ~]$ clear;echo -e '\033[32mLogin 192.168.3.199 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.199 done. Enjoy it.[0m
+[ldap196@192.168.3.199 ~]$ logout
+Endtime is 2015-11-06 14:15:08.861096

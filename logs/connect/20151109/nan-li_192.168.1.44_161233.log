@@ -1,0 +1,9 @@
+Starttime is 2015-11-09 16:12:33.380859
+Creating home directory for nan-li.
+PS1='[\u@192.168.1.44 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[nan-li@android-market02 ~]$ PS1='[\u@192.168.1.44 \W]\$ '
+[nan-li@192.168.1.44 ~]$ clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.44 done. Enjoy it.[0m
+[nan-li@192.168.1.44 ~]$ logout
+Endtime is 2015-11-09 16:12:35.250272

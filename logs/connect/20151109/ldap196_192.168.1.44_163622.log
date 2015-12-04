@@ -1,0 +1,25 @@
+Starttime is 2015-11-09 16:36:22.924674
+Last login: Mon Nov  9 16:37:42 2015 from 192.168.3.39
+PS1='[\u@192.168.1.44 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[ldap196@android-market02 ~]$ PS1='[\u@192.168.1.44 \W]\$ '
+[ldap196@192.168.1.44 ~]$ clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.44 done. Enjoy it.[0m
+[ldap196@192.168.1.44 ~]$ s[Kls -al
+total 24
+drwxr-xr-x   2 ldap196 ldap196 4096 Nov  9 14:55 [0m[01;34m.[0m
+drwxr-xr-x. 12 root    root    4096 Nov  9 16:14 [01;34m..[0m
+-rw-------   1 ldap196 ldap196  587 Nov  9 16:38 .bash_history
+-rw-r--r--   1 ldap196 ldap196   18 Nov  9 14:55 .bash_logout
+-rw-r--r--   1 ldap196 ldap196  176 Nov  9 14:55 .bash_profile
+-rw-r--r--   1 ldap196 ldap196  124 Nov  9 14:55 .bashrc
+[m[ldap196@192.168.1.44 ~]$ pwd
+/home/ldap196
+[ldap196@192.168.1.44 ~]$ hosyn[K[Ktname
+android-market02.novalocal
+[ldap196@192.168.1.44 ~]$ pwd
+/home/ldap196
+[ldap196@192.168.1.44 ~]$ ll
+total 0
+[ldap196@192.168.1.44 ~]$ logout
+Endtime is 2015-11-09 16:36:35.881381

@@ -1,0 +1,9 @@
+Starttime is 2015-11-23 13:41:20.524892
+Last login: Mon Nov 23 12:52:44 2015 from ops.tcloud.com
+PS1='[\u@192.168.3.198 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[ldap-test@mie-bj-ldap-3 ~]$ PS1='[\u@192.168.3.198 \W]\$ '
+[ldap-test@192.168.3.198 ~]$ clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.198 done. Enjoy it.[0m
+[ldap-test@192.168.3.198 ~]$ logout
+Endtime is 2015-11-23 13:41:22.251829

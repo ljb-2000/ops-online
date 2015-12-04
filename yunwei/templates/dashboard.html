@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="Will Zhao Modify">
+        <link rel="shortcut icon" href="/static/images/favicon.png" type="/static/image/png">
+
+        <title>OPS 管理系统</title>
+
+
+    <!---	<link href="/static/css/style.css" rel="stylesheet"> --->
+        <link href="/static/css/style.default.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+      
+        <section>
+
+            <div class="leftpanel">
+
+                <div class="logopanel">
+                    <h1><span>[</span> Tcloud运维管理平台 <span>]</span></h1>
+                </div>
+
+                <div class="leftpanelinner">
+                    <div class="visible-xs hidden-sm hidden-md hidden-lg">   
+                        <div class="media userlogged">
+                            <img alt="" src="/static/images/loggeduser.png" class="media-object">
+                            <div class="media-body">
+                                <h4>John Doe</h4>
+                                <span>"Life is so..."</span>
+                            </div>
+                        </div>
+
+                        <h5 class="sidebartitle actitle"></h5>
+                        <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+                            <li><a href="/logout/"><i class="fa fa-sign-out"></i> <span>退出</span></a></li>
+                        </ul>
+                    </div>
+
+                    <h5 class="sidebartitle">导航</h5>
+                    <ul class="nav nav-pills nav-stacked nav-bracket">
+                        <li class="active"><a href="javascript:void(0)"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                      	<li><a href="/tcloudvm/"><i class="fa fa-fax"></i> <span>虚机申请</span></a></li> 
+                        <li><a href="/codedeploy/"><i class="fa fa-file-code-o"></i> <span>代码部署</span></a></li>
+                        <li>
+           <a href="#asset" class="nav-header menu-first collapsed" data-toggle="collapse"><i class="fa fa-keyboard-o"></i> <span>资产管理</span></a>
+                            <ul id="asset" class="nav nav-list collapse menu-second" style="height: 0px;">
+                                <li class="group_list group_detail group_edit"><a href="/asset/group_list/">查看分组</a></li>
+                                <li class="group_add"><a href="/asset/group_add/">添加分组</a></li>
+                            </ul>
+                        </li>
+			<li><a href="/saltstack/"><i class="fa fa-laptop"></i> <span>任务管理</span></a></li>
+                        <li>
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> <span>用户管理</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dept_list dept_edit"><a href="/ldapuser/dept_list/">查看部门</a></li>
+                                <li class="dept_add"><a href="/ldapuser/dept_add/">添加部门</a></li>
+                                <li class="group_list group_edit"><a href="/ldapuser/group_list/">查看小组</a></li>
+                                <li class="group_add"><a href="/ldapuser/group_add/">添加小组</a></li>
+                                <li class="user_list user_edit user_detail"><a href="/ldapuser/user_list/">查看用户</a></li>
+                                <li class="user_add"><a href="/ldapuser/user_add/">添加用户</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lock"></i> <span>权限管理</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dept_perm_list dept_perm_edit active"><a href="/ldapperm/dept_perm_list/">部门授权</a></li>
+                                <li class="perm_list perm_edit perm_detail"><a href="/ldapperm/perm_list/">小组授权</a></li>
+                              <li class="sudo_list sudo_edit sudo_add cmd_list cmd_edit cmd_add sudo_detail"><a href="/ldapperm/sudo_list/">sudo授权</a></li>
+                            </ul>
+                        </li>				
+			<li><a href="/operation/"><i class="fa fa-book"></i> <span>操作记录</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mainpanel">
+                <div class="headerbar">
+                    <a class="menutoggle"><i class="fa fa-bars"></i></a>
+                    <div class="header-right">
+                        <ul class="headermenu">
+                            <li>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <img src="/static/images/loggeduser.png" alt="" />
+                                         {{user.username}}
+                                    </button>
+                                </div>
+                            </li>
+                            <li>
+                                <button id="btn_sys_logout" class="btn btn-default tp-icon chat-icon" title="退出">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div><!-- header-right -->
+
+                </div><!-- headerbar -->
+
+                <div class="pageheader">
+                    <h2><i class="fa fa-home"></i> Dashboard <span></span></h2>
+                    <div class="breadcrumb-wrapper">
+                        <span class="label">You are here:</span>
+                        <ol class="breadcrumb">
+                            <li><a href="/dashboard/">OPS</a></li>
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="contentpanel">
+                    <div class="row">
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="panel panel-success panel-stat">
+                                <div class="panel-heading">
+
+                                    <div class="stat">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <img src="/static/images/is-user.png" alt=""/>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <small class="stat-label">Visits Today</small>
+                                                <h1>900k+</h1>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb15"></div>
+
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <small class="stat-label">Pages / Visit</small>
+                                                <h4>7.80</h4>
+                                            </div>
+
+                                            <div class="col-xs-6">
+                                                <small class="stat-label">% New Visits</small>
+                                                <h4>76.43%</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="panel panel-danger panel-stat">
+                                <div class="panel-heading">
+
+                                    <div class="stat">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <img src="/static/images/is-document.png" alt=""/>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <small class="stat-label">% Unique Visitors</small>
+                                                <h1>54.40%</h1>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb15"></div>
+
+                                        <small class="stat-label">Avg. Visit Duration</small>
+                                        <h4>01:80:22</h4>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="panel panel-primary panel-stat">
+                                <div class="panel-heading">
+
+                                    <div class="stat">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <img src="/static/images/is-document.png" alt=""/>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <small class="stat-label">Page Views</small>
+                                                <h1>300k+</h1>
+                                            </div>
+                                        </div>
+                                        <!-- row -->
+
+                                        <div class="mb15"></div>
+
+                                        <small class="stat-label">% Bounce Rate</small>
+                                        <h4>34.23%</h4>
+
+                                    </div>
+                                    <!-- stat -->
+
+                                </div>
+                                <!-- panel-heading -->
+                            </div>
+                            <!-- panel -->
+                        </div>
+                        <!-- col-sm-6 -->
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="panel panel-dark panel-stat">
+                                <div class="panel-heading">
+
+                                    <div class="stat">
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <img src="/static/images/is-money.png" alt=""/>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <small class="stat-label">Today's Earnings</small>
+                                                <h1>$655</h1>
+                                            </div>
+                                        </div>
+                                        <!-- row -->
+
+                                        <div class="mb15"></div>
+
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <small class="stat-label">Last Week</small>
+                                                <h4>$32,322</h4>
+                                            </div>
+
+                                            <div class="col-xs-6">
+                                                <small class="stat-label">Last Month</small>
+                                                <h4>$503,000</h4>
+                                            </div>
+                                        </div>
+                                        <!-- row -->
+
+                                    </div>
+                                    <!-- stat -->
+
+                                </div>
+                                <!-- panel-heading -->
+                            </div>
+                            <!-- panel -->
+                        </div>
+                        <!-- col-sm-6 -->
+                    </div>
+                    <!-- End:row -->
+
+                    <!-- Start:row -->
+                    <div class="row">
+                        <div class="col-sm-8 col-md-9">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h5 class="subtitle mb5">Network Performance</h5>
+
+                                            <p class="mb15">Duis autem vel eum iriure dolor in hendrerit in
+                                                vulputate...</p>
+
+                                            <div id="basicflot"
+                                                 style="width: 100%; height: 300px; margin-bottom: 20px"></div>
+                                        </div>
+                                        <!-- col-sm-8 -->
+                                        <div class="col-sm-4">
+                                            <h5 class="subtitle mb5">Server Status</h5>
+
+                                            <p class="mb15">Summary of the status of your server.</p>
+
+                                            <span class="sublabel">CPU Usage (40.05 - 32 cpus)</span>
+
+                                            <div class="progress progress-sm">
+                                                <div style="width: 40%" aria-valuemax="100" aria-valuemin="0"
+                                                     aria-valuenow="40" role="progressbar"
+                                                     class="progress-bar progress-bar-primary"></div>
+                                            </div>
+                                            <!-- progress -->
+
+                                            <span class="sublabel">Memory Usage (32.2%)</span>
+
+                                            <div class="progress progress-sm">
+                                                <div style="width: 32%" aria-valuemax="100" aria-valuemin="0"
+                                                     aria-valuenow="40" role="progressbar"
+                                                     class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                            <!-- progress -->
+
+                                            <span class="sublabel">Disk Usage (82.2%)</span>
+
+                                            <div class="progress progress-sm">
+                                                <div style="width: 82%" aria-valuemax="100" aria-valuemin="0"
+                                                     aria-valuenow="40" role="progressbar"
+                                                     class="progress-bar progress-bar-danger"></div>
+                                            </div>
+                                            <!-- progress -->
+
+                                            <span class="sublabel">Databases (63/100)</span>
+
+                                            <div class="progress progress-sm">
+                                                <div style="width: 63%" aria-valuemax="100" aria-valuemin="0"
+                                                     aria-valuenow="40" role="progressbar"
+                                                     class="progress-bar progress-bar-warning"></div>
+                                            </div>
+                                            <!-- progress -->
+
+                                            <span class="sublabel">Domains (2/10)</span>
+
+                                            <div class="progress progress-sm">
+                                                <div style="width: 20%" aria-valuemax="100" aria-valuemin="0"
+                                                     aria-valuenow="40" role="progressbar"
+                                                     class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                            <!-- progress -->
+
+                                            <span class="sublabel">Email Account (13/50)</span>
+
+                                            <div class="progress progress-sm">
+                                                <div style="width: 26%" aria-valuemax="100" aria-valuemin="0"
+                                                     aria-valuenow="40" role="progressbar"
+                                                     class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                            <!-- progress -->
+
+
+                                        </div>
+                                        <!-- col-sm-4 -->
+                                    </div>
+                                    <!-- row -->
+                                </div>
+                                <!-- panel-body -->
+                            </div>
+                            <!-- panel -->
+                        </div>
+                        <!-- col-sm-9 -->
+
+                        <div class="col-sm-4 col-md-3">
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <h5 class="subtitle mb5">Most Browser Used</h5>
+
+                                    <p class="mb15">Duis autem vel eum iriure dolor in hendrerit in vulputate...</p>
+
+                                    <div id="donut-chart2" class="ex-donut-chart"></div>
+                                </div>
+                                <!-- panel-body -->
+                            </div>
+                            <!-- panel -->
+
+                        </div>
+                        <!-- col-sm-3 -->
+
+                    </div>
+                    <!-- End:row -->
+
+
+                </div>
+
+            </div><!-- mainpanel -->
+
+        </section>
+
+
+
+        <script src="/static/js/jquery-1.11.1.min.js"></script>
+        <script src="/static/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/modernizr.min.js"></script>
+        <script src="/static/js/jquery.sparkline.min.js"></script>
+        <script src="/static/js/toggles.min.js"></script>
+        <script src="/static/js/retina.min.js"></script>
+        <script src="/static/js/jquery.cookies.js"></script>
+
+        <!--chart-->
+        <script src="/static/js/flot/jquery.flot.min.js"></script>
+        <script src="/static/js/flot/jquery.flot.resize.min.js"></script>
+        <script src="/static/js/flot/jquery.flot.spline.min.js"></script>
+        <script src="/static/js/morris.min.js"></script>
+        <script src="/static/js/raphael-2.1.0.min.js"></script>
+        
+        <script src="/static/js/custom.js"></script>
+        <script src="/static/js/page/dashboard.js" defer="defer" async="async"></script>
+
+    </body>
+    
+
+</html>

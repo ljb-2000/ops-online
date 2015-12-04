@@ -1,0 +1,58 @@
+Starttime is 2015-11-05 14:47:08.675394
+Last login: Thu Nov  5 14:04:48 2015 from ops.tcloud.com
+PS1='[\u@192.168.3.77 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.77 done. Enjoy it.\033[0m'
+[ldap197@ops-master ~]$ PS1='[\u@192.168.3.77 \W]\$ '
+[ldap197@192.168.3.77 ~]$ clear;echo -e '\033[32mLogin 192.168.3.77 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.77 done. Enjoy it.[0m
+[ldap197@192.168.3.77 ~]$ ls -al
+total 24
+drwxr-xr-x  2 ldap197 ldap197 4096 Nov  5 10:38 [0m[01;34m.[0m
+drwxr-xr-x. 9 root    root    4096 Nov  5 10:35 [01;34m..[0m
+-rw-------  1 ldap197 ldap197  819 Nov  5 14:04 .bash_history
+-rw-r--r--  1 ldap197 ldap197   18 Nov  5 10:35 .bash_logout
+-rw-r--r--  1 ldap197 ldap197  176 Nov  5 10:35 .bash_profile
+-rw-r--r--  1 ldap197 ldap197  124 Nov  5 10:35 .bashrc
+[m[ldap197@192.168.3.77 ~]$ pwd
+/home/ldap197
+[ldap197@192.168.3.77 ~]$ ll
+total 0
+[ldap197@192.168.3.77 ~]$ sudo -u work
+usage: sudo [-D level] -h | -K | -k | -V
+usage: sudo -v [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid]
+usage: sudo -l[l] [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-U user name] [-u user name|#uid] [-g groupname|#gid] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] [-g groupname|#gid] [VAR=value] [-i|-s]
+            [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] file ...
+[ldap197@192.168.3.77 ~]$ sudo -u work [K[K[K[K[K[K[K[K[K[K[K[K[Kcd /data/repos/
+[ldap197@192.168.3.77 repos]$ ll
+total 0
+[ldap197@192.168.3.77 repos]$ cd ..
+[ldap197@192.168.3.77 data]$ ll
+total 0
+drwxr-xr-x 3 work work 19 Jun 10 16:18 [0m[01;34mlog[0m
+drwxrwxrwx 2 work work  6 Jun 10 16:16 [34;42mrepos[0m
+drwxr-xr-x 2 work work  6 Oct 28 17:17 [01;34mserver[0m
+drwxr-xr-x 4 work work 60 Jun 10 16:18 [01;34msoftwares[0m
+[m[ldap197@192.168.3.77 data]$ cd server/
+[ldap197@192.168.3.77 server]$ ls -al
+total 0
+drwxr-xr-x 2 work work  6 Oct 28 17:17 [0m[01;34m.[0m
+drwxrwxrwx 6 work work 57 Jun 10 16:16 [34;42m..[0m
+[m[ldap197@192.168.3.77 server]$ sudo -u work touch 123
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for ldap197: 
+[ldap197@192.168.3.77 server]$ /etc/init.d/ip
+ip6tables  iptables   
+[ldap197@192.168.3.77 server]$ /etc/init.d/ip
+ip6tables  iptables   
+[ldap197@192.168.3.77 server]$ /etc/init.d/iptables status
+[ldap197@192.168.3.77 server]$ logout
+Endtime is 2015-11-05 14:50:15.830148

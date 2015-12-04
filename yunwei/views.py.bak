@@ -1,0 +1,192 @@
+from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render_to_response
+from django.contrib import auth
+from django.shortcuts import render
+from subprocess import Popen,PIPE
+from yunwei.models import AppInfor
+from yunwei.models import Host
+import re
+import time
+import MySQLdb
+
+def login(request):
+    return render_to_response("login.html",{})
+def index(request):
+    return render_to_response('index.html')
+def account_login(request):
+    print request.POST
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = auth.authenticate(username=username,password=password)
+    if user is not None:
+        auth.login(request,user)
+        return HttpResponseRedirect('/dashboard/')
+    else:
+        return render_to_response('index.html',{'login_err':"Wrong username and password!"})
+def logout(request):
+    user = request.user
+    auth.logout(request)
+    return HttpResponse("<h3>User %s logout success!</h3>" % user)
+def dashboard(request):
+    return render_to_response('dashboard.html',{'user':request.user})
+def tcloudvm(request):
+    return render_to_response('tcloudvm.html',{})
+def create_vm(request):
+    print request.POST
+    tcloudvm_conf = '/root/ops/static/scripts/tcloudvm.conf'
+    vm_list = '/root/ops/static/scripts/vmlist'
+    rsync_cmd = 'prsync -arzv -H root@211.151.7.137 %s /root/python/server_info.py' %(tcloudvm_conf)
+    createvm_cmd = 'pssh -H root@211.151.7.137 -P "source tcloud-openrc.sh;python /root/2.py"'
+    msg = None
+    servername = request.POST.get('servername')
+    owner = request.POST.get('owner')
+    security = request.POST.get('security')
+    type = request.POST.get('type')
+    publicip = request.POST.get('publicip')
+    disknum = request.POST.get('disknum')
+    disksize = request.POST.get('disksize')
+    software = request.POST.get('software')
+    print software
+    list = ['security','type','publicip','disknum','disksize','software','owner']
+    list1 = [str(security),str(type),str(publicip),str(disknum),str(disksize),str(software),str(owner)]    
+    print list1
+    vm_add = dict(zip(list,list1))
+    print vm_add
+    a = 'server_info = { \'%s\':%s,\n} '
+    if servername:
+        with open(vm_list) as fp:
+            vm_exist = fp.read()
+            if servername not in vm_exist:
+                with open(tcloudvm_conf,'w') as fp:
+                    fp.write(a % (servername,vm_add))
+                    fp.flush()
+                    p1 = Popen(rsync_cmd,shell=True,stdout=PIPE,stderr=PIPE)
+                    p2 = Popen(createvm_cmd,shell=True,stdout=PIPE,stderr=PIPE)
+                    #time.sleep(20) 
+                    if p1.wait() == 0 and p2.wait() == 0:
+                        msg = u'createvm sucessed!'
+                        with open(vm_list,'a+') as fp:
+                            fp.write(str(servername)+'\n')
+                    else:
+                        msg = u'createvm failed!'
+            else:
+                msg = u'vm is exists!'
+    else:
+        msg = u'input error!'
+
+    return render(request,'tcloudvm.html',{'msg':msg})
+def codedeploy(request):
+    conn= MySQLdb.connect(host="192.168.0.1" ,user= "tclop",passwd ="tclops",port=3307,db='tclsupport')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM yunwei_appinfor')  
+    names = AppInfor.objects.all()
+    conn.close()  
+    return render(request,'codedeploy.html',{'user':request.user,'names':names})
+def code(request):
+    print request.POST
+    appname = request.POST.get('app_name')
+    version = request.POST.get('deploy_version')
+    ip = request.POST.get('deploy_ip')
+    id = request.POST.get('deploy_id')
+    codedeploy_conf = '/root/ops/static/scripts/codedeploy.conf'
+    rsyncd_cmd = 'prsync -arzv -H %s %s /home/work/python/deploy_info.py'%(ip,codedeploy_conf)
+    codedeploy_cmd = 'pssh -H %s -P "python /home/work/%s.py"'%(ip,appname)
+    msg = None
+    list = ['app_name','version','app_ip','app_id']
+    list1 = [str(appname),str(version),str(ip),str(id)]
+    code_deploy = dict(zip(list,list1))
+    a = 'deploy_info = %s'
+    with open(codedeploy_conf,'w') as fp:
+        fp.write(a % (code_deploy))
+        fp.flush()
+        p1 = Popen(rsyncd_cmd,shell=True,stdout=PIPE,stderr=PIPE)
+        p2 = Popen(codedeploy_cmd,shell=True,stdout=PIPE,stderr=PIPE)
+        time.sleep(15)
+        if p1.wait() == 0 and p2.wait() == 0:
+            msg = u'codedeploy sucessed!'
+        else:
+            msg = u'codedeploy failed!'
+
+    conn= MySQLdb.connect(host="192.168.0.1" ,user= "tclop",passwd ="tclops",port=3307,db='tclsupport')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM yunwei_appinfor')  
+    names = AppInfor.objects.all()
+    conn.close()  
+    return render(request,'codedeploy.html', {'msg':msg,'names':names})     
+def saltstack(request):
+    return render_to_response('saltstack.html',{'user':request.user})
+def cmdb(request):
+    if request.POST:
+        vendor = request.POST.get('Product_Name')
+        sn = request.POST.get('Serial_Number')
+        product = request.POST.get('Manufacturer')
+        cpu_model = request.POST.get('Model_Name')
+        cpu_num = request.POST.get('Cpu_Cores')
+        memory_size = request.POST.get('memory_size')
+        device_size = request.POST.get('device_size')
+        osver = request.POST.get('os_version')
+        hostname = request.POST.get('os_name')
+        os_release = request.POST.get('os_release')
+        ipaddrs = request.POST.get('Ipaddr')
+        mac = request.POST.get('Mac')
+        mask = request.POST.get('Mask')
+        network = request.POST.get('Device')
+
+        host = Host()
+        host.vendor = vendor
+        host.sn = sn
+        host.product = product
+        host.cpu_model = cpu_model
+        host.cpu_num = cpu_num
+        host.memory_size = memory_size
+        host.device_size = device_size
+        host.osver = osver
+        host.hostname = hostname
+        host.os_release = os_release
+        host.ipaddrs = ipaddrs
+        host.mac = mac
+        host.mask = mask
+        host.network = network
+        host.save()
+
+        return HttpResponse('ok')
+    else:
+        return HttpResponse('no data')
+
+    #conn= MySQLdb.connect(host="192.168.0.1" ,user= "tclop",passwd ="tclops",port=3307,db='tclsupport')
+    #cursor = conn.cursor()
+    #cursor.execute('SELECT * FROM yunwei_host')  
+    #names = Host.objects.all()
+    #conn.close()  
+    #return render_to_response('cmdb.html',{'user':request.user})
+def cmdbsubmit(request):
+    position = request.POST.get('position')
+    iloip = request.POST.get('iloip')
+    netport = request.POST.get('netport')
+    manageport = request.POST.get('manageport')
+    datastorageport = request.POST.get('datastorageport')
+    id = request.POST.get('cmdb_id')
+    sn = req.POST.get('serial_number')
+
+    sql='update yunwei_host set position="%s",iloip="%s",netport="%s",manageport="%s",datastorageport="%s" where id="%s"'%(position,iloip,netport,manageport,datastorageport,id)
+   
+    conn= MySQLdb.connect(host="192.168.0.1" ,user= "tclop",passwd ="tclops",port=3307,db='tclsupport')
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    conn.commit()
+
+    conn= MySQLdb.connect(host="192.168.0.1" ,user= "tclop",passwd ="tclops",port=3307,db='tclsupport')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM yunwei_host')
+    names = Host.objects.all()
+    conn.close()
+    return render(request,'cmdb.html', {'msg':msg,'names':names})     
+def authority(request):
+    return render_to_response('authority.html',{'user':request.user})
+def user(request):
+    return render_to_response('user.html',{'user':request.user})
+@login_required
+def myview(request):
+    return render_to_response('index.html')
+

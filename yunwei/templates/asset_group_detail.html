@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="Will Zhao Modify">
+        <link rel="shortcut icon" href="/static/images/favicon.png" type="/static/image/png">
+
+        <title>OPS 管理系统-用户管理</title>
+
+	<link href="/static/css/style.css" rel="stylesheet">
+        <link href="/static/css/style.default.css" rel="stylesheet">
+	<script src="/static/js/base.js"></script>
+
+    </head>
+
+    <body>
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+{% load mytags %}
+
+        <section>
+
+            <div class="leftpanel">
+
+                <div class="logopanel">
+                    <h1><span>[</span> Tcloud运维管理平台 <span>]</span></h1>
+                </div><!-- logopanel -->
+
+                <div class="leftpanelinner">
+
+                    <div class="visible-xs hidden-sm hidden-md hidden-lg">   
+                        <div class="media userlogged">
+                            <img alt="" src="/static/images/loggeduser.png" class="media-object">
+                            <div class="media-body">
+                                <h4>John Doe</h4>
+                                <span>"Life is so..."</span>
+                            </div>
+                        </div>
+
+                        <h5 class="sidebartitle actitle"></h5>
+                        <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+                            <li><a href="/logout/"><i class="fa fa-sign-out"></i> <span>退出</span></a></li>
+                        </ul>
+                    </div>
+
+                    <h5 class="sidebartitle">导航</h5>
+                    <ul class="nav nav-pills nav-stacked nav-bracket">
+                        <li><a href="/dashboard/"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                        <li><a href="/tcloudvm/"><i class="fa fa-fax"></i> <span>虚机申请</span></a></li>
+                        <li><a href="/codedeploy/"><i class="fa fa-file-code-o"></i> <span>代码部署</span></a></li>
+                        <li>
+         <a href="#asset" class="nav-header menu-first collapsed" data-toggle="collapse"><i class="fa fa-keyboard-o"></i> <span>资产管理</span></a>
+                            <ul id="asset" class="nav nav-list collapse menu-second" style="height: 0px;">
+                                <li class="group_list group_detail group_edit"><a href="/asset/group_list/">查看分组</a></li>
+                                <li class="group_add"><a href="/asset/group_add/">添加分组</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/saltstack/"><i class="fa fa-laptop"></i> <span>任务管理</span></a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> <span>用户管理</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dept_list dept_edit"><a href="/ldapuser/dept_list/">查看部门</a></li>
+                                <li class="dept_add"><a href="/ldapuser/dept_add/">添加部门</a></li>
+                                <li class="group_list group_edit"><a href="/ldapuser/group_list/">查看小组</a></li>
+                                <li class="group_add"><a href="/ldapuser/group_add/">添加小组</a></li>
+                                <li class="user_list user_edit user_detail"><a href="/ldapuser/user_list/">查看用户</a></li>
+                                <li class="user_add"><a href="/ldapuser/user_add/">添加用户</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lock"></i> <span>权限管理</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dept_perm_list dept_perm_edit active"><a href="/ldapperm/dept_perm_list/">部门授权</a></li>
+                                <li class="perm_list perm_edit perm_detail"><a href="/ldapperm/perm_list/">小组授权</a></li>
+                                <li class="sudo_list sudo_edit sudo_add cmd_list cmd_edit cmd_add sudo_detail"><a href="/ldapperm/sudo_list/">sudo授权</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div><!-- leftpanelinner -->
+            </div><!-- leftpanel -->
+
+            <div class="mainpanel">
+
+                <div class="headerbar">
+
+                    <a class="menutoggle"><i class="fa fa-bars"></i></a>
+
+                    <div class="header-right">
+                        <ul class="headermenu">
+                            <li>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <img src="/static/images/loggeduser.png" alt="" />
+                                         {{user.username}}
+                                    </button>
+                                </div>
+                            </li>
+                            <li>
+                                <button id="btn_sys_logout" class="btn btn-default tp-icon chat-icon" title="退出">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div><!-- header-right -->
+
+                </div><!-- headerbar -->
+
+                <div class="pageheader">
+                    <h2><i class="fa fa-keyboard-o"></i>主机组详情<span></span></h2>
+                    <div class="breadcrumb-wrapper">
+                        <span class="label">You are here:</span>
+                        <ol class="breadcrumb">
+                            <li><a href="/dashboard/">OPS</a></li>
+                            <li class="active">资产管理</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="contentpanel">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="ibox float-e-margins" id="all">
+                <div class="ibox-title">
+                    <h5> 主机组<span class="text-info">{{ group.name }}</span>详细信息列表</h5>
+                </div>
+
+               <!-- <div class="ibox-content">
+                    <div class="">
+                        <a target="_blank" href="/jasset/host_add" class="btn btn-sm btn-primary"> 添加主机 </a>
+                        <b class="pull-right">提示: 此页面删除只从本主机组中剔除主机</b>
+                    </div> -->
+
+                    <form id="contents_form" name="contents_form">
+                    <table class="table table-striped table-bordered table-hover " id="editable" name="editable">
+                        <thead>
+                            <tr>
+                                <th class="text-center"><input id="checkall" type="checkbox" class="i-checks" name="checkall" value="checkall" data-editable='false' onclick="check_all('contents_form')"></th>
+                                <th class="text-center" name="j_ip"> IP地址 </th>
+                                <th class="text-center" id="group_id" value="{{ group.id }}"> 所属业务组 </th>
+                                <th class="text-center"> 是否激活 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for post in contacts.object_list %}
+                            <tr class="gradeX">
+                                <td class="text-center" name="j_id" value="{{ post.id }}" data-editable='false'><input name="id" value="{{ post.id }}" type="checkbox" class="i-checks"></td>
+                                <td class="text-center" name="j_ip"> {{ post.ip }} </td>
+                                <td class="text-center" name="j_group">{{ post.bis_group.all | group_str2 }}</td>
+                                <td class="text-center" name="j_active"> {{ post.is_active|bool2str }} </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="row">
+                      <div class="col-sm-6">
+       <input type="button" id="del_button" class="btn btn-danger btn-sm"  name="del_button" value="删除" onclick="del('contents_form')" />   
+                        </div> 
+                        <div class="col-sm-6">
+                            <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
+                                <ul class="pagination" style="margin-top: 0; float: right">
+                                {% if keyword %}
+                                    {% if contacts.has_previous %}
+                                        <li class="paginate_button previous" aria-controls="editable" tabindex="0" id="editable_previous">
+                                            <a href="?keyword={{ keyword }}&page={{ contacts.previous_page_number }}">Previous</a>
+                                        </li>
+                                    {% else %}
+                                   <li class="paginate_button previous disabled" aria-controls="editable" tabindex="0" id="editable_previous">
+                                             <a href="#">Previous</a>
+                                        </li>
+                                    {% endif %}
+                                    {% ifequal show_first 1 %}
+                                 <li class="paginate_button" aria-controls="editable" tabindex="0"><a href="?keyword={{ keyword }}&page=1&id={{ group.id }}"  title="第1页">1...</a></li>
+                                    {% endifequal %}
+                                    {% for page in page_range %}
+                                        {% ifequal current_page page %}
+                                            <li class="paginate_button active"  aria-controls="editable" tabindex="0"><a href="?keyword={{ keyword }}&page={{ page }}&id={{ group.id }}"  title="第{{ page }}页">{{ page }}</a></li>
+                                        {% else %}
+                                            <li class="paginate_button" aria-controls="editable" tabindex="0"><a href="?keyword={{ keyword }}&page={{ page }}&id={{ group.id }}"  title="第{{ page }}页">{{ page }}</a></li>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                    {% ifequal show_end 1 %}
+                                        <li class="paginate_button" aria-controls="editable" tabindex="0"><a href="?keyword={{ keyword }}&page={{ p.num_pages }}&id={{ group.id }}"  title="第{{ page }}页">...{{ p.num_pages }}</a></li>
+                                    {% endifequal %}
+                                    {% if contacts.has_next %}
+                                        <li class="paginate_button next" aria-controls="editable" tabindex="0" id="editable_next">
+                                            <a href="?keyword={{ keyword }}&page={{ contacts.next_page_number }}&id={{ group.id }}">Next</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="paginate_button next disabled" aria-controls="editable" tabindex="0" id="editable_next">
+                                            <a href="#">Next</a>
+                                        </li>
+                                    {% endif %}
+
+                                {% else %}
+                                    {% if contacts.has_previous %}
+                                        <li class="paginate_button previous" aria-controls="editable" tabindex="0" id="editable_previous">
+                                            <a href="?page={{ contacts.previous_page_number }}&id={{ group.id }}">Previous</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="paginate_button previous disabled" aria-controls="editable" tabindex="0" id="editable_previous">
+                                             <a href="#">Previous</a>
+                                        </li>
+                                    {% endif %}
+                                    {% ifequal show_first 1 %}
+                                        <li class="paginate_button" aria-controls="editable" tabindex="0"><a href="?page=1&id={{ group.id }}"  title="第1页">1...</a></li>
+                                    {% endifequal %}
+                                    {% for page in page_range %}
+                                        {% ifequal current_page page %}
+                                            <li class="paginate_button active"  aria-controls="editable" tabindex="0"><a href="?page={{ page }}&id={{ group.id }}"  title="第{{ page }}页">{{ page }}</a></li>
+                                        {% else %}
+                                            <li class="paginate_button" aria-controls="editable" tabindex="0"><a href="?page={{ page }}&id={{ group.id }}"  title="第{{ page }}页">{{ page }}</a></li>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                    {% ifequal show_end 1 %}
+                                        <li class="paginate_button" aria-controls="editable" tabindex="0"><a href="?page={{ p.num_pages }}&id={{ group.id }}"  title="第{{ page }}页">...{{ p.num_pages }}</a></li>
+                                    {% endifequal %}
+                                    {% if contacts.has_next %}
+                                        <li class="paginate_button next" aria-controls="editable" tabindex="0" id="editable_next">
+                                            <a href="?page={{ contacts.next_page_number }}&id={{ group.id }}">Next</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="paginate_button next disabled" aria-controls="editable" tabindex="0" id="editable_next">
+                                            <a href="#">Next</a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        </section>
+
+
+
+        <script src="/static/js/jquery-1.11.1.min.js"></script>
+        <script src="/static/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/modernizr.min.js"></script>
+        <script src="/static/js/jquery.sparkline.min.js"></script>
+        <script src="/static/js/toggles.min.js"></script>
+        <script src="/static/js/retina.min.js"></script>
+        <script src="/static/js/jquery.cookies.js"></script>
+        <script src="/static/js/custom.js"></script>
+
+    </body>
+
+<script>
+    $(document).ready(function(){
+        $('#editable').editableTableWidget();
+    });
+
+    function alter(form) {
+        selectData = GetTableDataBox();
+        if (selectData[1] != 0) {
+            $.ajax({
+                type: "post",
+                url: "/asset/host_edit/batch/",
+                data: {"editable": selectData[0], "len_table": selectData[1]},
+                success: function (data) {
+                    alert("修改成功");
+                    window.open("/asset/host_list/", "_self");
+                }
+            });
+        }
+    }
+
+    function del(form) {
+        var checkboxes = document.getElementById(form);
+        var id_list = {};
+        var group_id = $('#group_id').attr("value");
+        var j = 0;
+        for (var i = 0; i < checkboxes.elements.length; i++) {
+            if (checkboxes.elements[i].type == "checkbox" && checkboxes.elements[i].checked == true && checkboxes.elements[i].value != "checkall") {
+                id_list[j] = checkboxes.elements[i].value;
+                j++;
+            }
+        }
+        if (confirm("确定从主机组中删除")) {
+            $.ajax({
+                type: "POST",
+                url: "/asset/group_del_host/?id=group",
+                data: {"id_list": id_list, "len_list": j, "group_id": group_id},
+                success: function (data) {
+                    window.open(window.location.href, "_self");
+                }
+            });
+        }
+    }
+</script>
+
+</html>

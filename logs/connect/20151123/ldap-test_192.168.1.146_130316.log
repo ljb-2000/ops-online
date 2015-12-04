@@ -1,0 +1,46 @@
+Starttime is 2015-11-23 13:03:16.404006
+Last login: Mon Nov 23 13:03:59 2015 from 192.168.3.39
+PS1='[\u@192.168.1.146 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.146 done. Enjoy it.\033[0m'
+[ldap-test@android-shop01 ~]$ PS1='[\u@192.168.1.146 \W]\$ '
+[ldap-test@192.168.1.146 ~]$ clear;echo -e '\033[32mLogin 192.168.1.146 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.146 done. Enjoy it.[0m
+[ldap-test@192.168.1.146 ~]$ sudo -u work
+usage: sudo [-D level] -h | -K | -k | -V
+usage: sudo -v [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid]
+usage: sudo -l[l] [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-U user name] [-u user name|#uid] [-g groupname|#gid] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] [-g groupname|#gid] [VAR=value] [-i|-s] [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] file ...
+[ldap-test@192.168.1.146 ~]$ sudo -u work touch /data/
+aota/        appstore/    log/         personal/    server/      softwares/   tmp_apps/    
+appmarket/   hids/        mailService/ repos/       shell/       tmp/         webapp/      
+[ldap-test@192.168.1.146 ~]$ sudo -u work touch /data/rep[K[K[Kse[Koftwares/1[K
+apache-flume-1.5.2-bin/ flume/                  flume.tar.gz            jdk/                    nohup.out               zabbix-agentd/          zabbix-agentd-2.2/
+[ldap-test@192.168.1.146 ~]$ sudo -u work touch /data/softwares/
+apache-flume-1.5.2-bin/ flume/                  flume.tar.gz            jdk/                    nohup.out               zabbix-agentd/          zabbix-agentd-2.2/
+[ldap-test@192.168.1.146 ~]$ sudo -u work touch /data/softwares/123
+[ldap-test@192.168.1.146 ~]$ cd /data/softwares/
+[ldap-test@192.168.1.146 softwares]$ ll
+total 43816
+-rw-r--r--  1 work work        0 Nov 23 13:08 123
+drwxr-xr-x 10 work work     4096 Nov  5 16:27 [0m[01;34mapache-flume-1.5.2-bin[0m
+lrwxrwxrwx  1 work work       22 Aug 28 18:46 [01;36mflume[0m -> [01;34mapache-flume-1.5.2-bin[0m
+-rw-rw-r--  1 work work 44852754 Aug 28 19:02 [01;31mflume.tar.gz[0m
+drwxr-xr-x  8 root root     4096 Jan  8  2015 [01;34mjdk[0m
+-rw-------  1 work work       75 Aug 28 19:07 nohup.out
+lrwxrwxrwx  1 root root       33 Jan  8  2015 [01;36mzabbix-agentd[0m -> [01;34m/data/softwares/zabbix-agentd-2.2[0m
+drwxr-xr-x  8 root root       72 Jan  8  2015 [01;34mzabbix-agentd-2.2[0m
+[m[ldap-test@192.168.1.146 softwares]$ rm -rf 123 
+rm: cannot remove `123': Permission denied
+[ldap-test@192.168.1.146 softwares]$ ll[K[Krm -rf 123 ll[Kcd /data/softwares/sudo -u work touch /data/softwares/123[C[C /data/softwares/123[K /data/softwares/123[K /data/softwares/123[K /data/softwares/123[K /data/softwares/123[Kr /data/softwares/123m /data/softwares/123[C /data/softwares/123- /data/softwares/123e /data/softwares/123d /data/softwares/123 /data/softwares/123[K /data/softwares/123[Kr /data/softwares/123f /data/softwares/123[C /data/softwares/123
+[ldap-test@192.168.1.146 softwares]$ ll
+total 43816
+drwxr-xr-x 10 work work     4096 Nov  5 16:27 [0m[01;34mapache-flume-1.5.2-bin[0m
+lrwxrwxrwx  1 work work       22 Aug 28 18:46 [01;36mflume[0m -> [01;34mapache-flume-1.5.2-bin[0m
+-rw-rw-r--  1 work work 44852754 Aug 28 19:02 [01;31mflume.tar.gz[0m
+drwxr-xr-x  8 root root     4096 Jan  8  2015 [01;34mjdk[0m
+-rw-------  1 work work       75 Aug 28 19:07 nohup.out
+lrwxrwxrwx  1 root root       33 Jan  8  2015 [01;36mzabbix-agentd[0m -> [01;34m/data/softwares/zabbix-agentd-2.2[0m
+drwxr-xr-x  8 root root       72 Jan  8  2015 [01;34mzabbix-agentd-2.2[0m
+[m[ldap-test@192.168.1.146 softwares]$ logout
+Endtime is 2015-11-23 13:04:05.492300

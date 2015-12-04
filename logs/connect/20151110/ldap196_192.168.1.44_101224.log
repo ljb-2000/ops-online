@@ -1,0 +1,12 @@
+Starttime is 2015-11-10 10:12:24.742486
+Last login: Tue Nov 10 10:14:39 2015 from 192.168.3.39
+PS1='[\u@192.168.1.44 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[ldap196@android-market02 ~]$ PS1='[\u@192.168.1.44 \W]\$ '
+[ldap196@192.168.1.44 ~]$ clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.44 done. Enjoy it.[0m
+[ldap196@192.168.1.44 ~]$ exit[K[K[K[Kex[K[Kpwd
+/home/ldap196
+[ldap196@192.168.1.44 ~]$ exit
+logout
+Endtime is 2015-11-10 10:12:32.526097

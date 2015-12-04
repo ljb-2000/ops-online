@@ -1,0 +1,29 @@
+Starttime is 2015-11-05 15:22:27.637994
+Last login: Thu Nov  5 15:22:26 2015 from ops.tcloud.com
+PS1='[\u@192.168.3.198 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[ldap197@mie-bj-ldap-3 ~]$ PS1='[\u@192.168.3.198 \W]\$ '
+[ldap197@192.168.3.198 ~]$ clear;echo -e '\033[32mLogin 192.168.3.198 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.198 done. Enjoy it.[0m
+[ldap197@192.168.3.198 ~]$ sudo su -
+[sudo] password for ldap197: 
+[ldap197@192.168.3.198 ~]$ sdu[K[Kudo su [K[K[K- [Ku work touch /data/server/123[K[K[K456
+[sudo] password for ldap197: 
+[ldap197@192.168.3.198 ~]$ sudo -u work touch /data/server/456su -[K[K[K[K[Ku eo[K[Krott[K[Kot-u root
+usage: sudo [-D level] -h | -K | -k | -V
+usage: sudo -v [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid]
+usage: sudo -l[l] [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-U user name] [-u user name|#uid] [-g groupname|#gid] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] [-g groupname|#gid] [VAR=value] [-i|-s]
+            [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] file ...
+[ldap197@192.168.3.198 ~]$ sudo -u root 
+usage: sudo [-D level] -h | -K | -k | -V
+usage: sudo -v [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid]
+usage: sudo -l[l] [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-U user name] [-u user name|#uid] [-g groupname|#gid] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] [-g groupname|#gid] [VAR=value] [-i|-s]
+            [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] file ...
+[ldap197@192.168.3.198 ~]$ sudo -s
+[sudo] password for ldap197: 
+[ldap197@192.168.3.198 ~]$ logout
+Endtime is 2015-11-05 16:00:01.952453

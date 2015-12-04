@@ -1,0 +1,59 @@
+Starttime is 2015-11-06 14:22:34.398934
+Last login: Fri Nov  6 14:16:32 2015 from ops.tcloud.com
+PS1='[\u@192.168.3.77 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.77 done. Enjoy it.\033[0m'
+[ldap196@ops-master ~]$ PS1='[\u@192.168.3.77 \W]\$ '
+[ldap196@192.168.3.77 ~]$ clear;echo -e '\033[32mLogin 192.168.3.77 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.77 done. Enjoy it.[0m
+[ldap196@192.168.3.77 ~]$ syud[K[K[K[Ksudo su -
+[root@ops-master ~]# pwd
+/root
+[root@ops-master ~]# ll
+total 68
+-rwxr-xr-x  1 root root  1098 Jun 15 17:35 [0m[01;32m1.py[0m
+-rw-------. 1 root root  1156 Sep 23  2014 anaconda-ks.cfg
+-rw-r--r--  1 root root  4563 Oct 28 16:17 cacert.pem
+-rw-r--r--  1 root root  1733 Oct 26 15:23 client_setup.sh
+-rw-r--r--. 1 root root 27312 Sep 23  2014 install.log
+-rw-r--r--. 1 root root  7572 Sep 23  2014 install.log.syslog
+lrwxrwxrwx. 1 root root    22 Sep 23  2014 [01;36mjava[0m -> [01;32m/etc/alternatives/java[0m
+drwxr-xr-x  4 root root  4096 Aug 10 15:50 [01;34msalt-server[0m
+drwxr-xr-x  2 root root  4096 Jun 24 11:42 [01;34mshell[0m
+[m[root@ops-master ~]# l[K/etc/init.d/
+abrt-ccpp         cgconfig          haldaemon         mcelogd           nslcd             rdisc             salt-master       snmptrapd
+abrtd             cgred             halt              mdmonitor         ntpd              restorecond       salt-minion       sshd
+abrt-oops         cloud-config      ip6tables         messagebus        ntpdate           rngd              salt-syndic       sssd
+acpid             cloud-final       iptables          netconsole        numad             rpcbind           sandbox           sysstat
+atd               cloud-init        irqbalance        netfs             oddjobd           rpcgssd           saslauthd         udev-post
+auditd            cloud-init-local  kdump             network           portreserve       rpcidmapd         single            winbind
+autofs            cpuspeed          killall           nfs               postfix           rpcsvcgssd        slapd             ypbind
+blk-availability  crond             lvm2-lvmetad      nfslock           psacct            rsyslog           smartd            zabbix_agentd
+certmonger        cups              lvm2-monitor      nscd              quota_nld         salt-api          snmpd             
+[root@ops-master ~]# /etc/init.d/iptables 
+1.py                .bash_logout        cacert.pem          install.log         java                salt-server/        .tcshrc
+anaconda-ks.cfg     .bash_profile       client_setup.sh     install.log.syslog  .pip/               shell/              .viminfo
+.bash_history       .bashrc             .cshrc              .ipython/           .pki/               .ssh/               
+[root@ops-master ~]# /etc/init.d/iptables status
+iptables: Firewall is not running.
+[root@ops-master ~]# logout
+[ldap196@192.168.3.77 ~]$ sudo -u work /[Ktouch /data/
+log/       repos/     server/    softwares/ 
+[ldap196@192.168.3.77 ~]$ sudo -u work touch /data/server/123
+[ldap196@192.168.3.77 ~]$ cd /data/server/
+[ldap196@192.168.3.77 server]$ ll
+total 0
+-rw-r--r-- 1 work work 0 Nov  6 14:24 123
+[ldap196@192.168.3.77 server]$ ls -al
+total 0
+drwxr-xr-x 2 work work 16 Nov  6 14:24 [0m[01;34m.[0m
+drwxrwxrwx 6 work work 57 Jun 10 16:16 [34;42m..[0m
+-rw-r--r-- 1 work work  0 Nov  6 14:24 123
+[m[ldap196@192.168.3.77 server]$ touch 123
+touch: cannot touch `123': Permission denied
+[ldap196@192.168.3.77 server]$ ls -al
+total 0
+drwxr-xr-x 2 work work 16 Nov  6 14:24 [0m[01;34m.[0m
+drwxrwxrwx 6 work work 57 Jun 10 16:16 [34;42m..[0m
+-rw-r--r-- 1 work work  0 Nov  6 14:24 123
+[m[ldap196@192.168.3.77 server]$ logout
+Endtime is 2015-11-06 14:23:42.029609

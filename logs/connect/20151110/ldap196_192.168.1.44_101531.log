@@ -1,0 +1,19 @@
+Starttime is 2015-11-10 10:15:31.321794
+Last login: Tue Nov 10 10:14:43 2015 from 192.168.3.39
+PS1='[\u@192.168.1.44 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[ldap196@android-market02 ~]$ PS1='[\u@192.168.1.44 \W]\$ '
+[ldap196@192.168.1.44 ~]$ clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.44 done. Enjoy it.[0m
+[ldap196@192.168.1.44 ~]$ ls -al
+total 24
+drwxr-xr-x   2 ldap196 ldap196 4096 Nov  9 14:55 [0m[01;34m.[0m
+drwxr-xr-x. 12 root    root    4096 Nov  9 16:14 [01;34m..[0m
+-rw-------   1 ldap196 ldap196 2286 Nov 10 10:14 .bash_history
+-rw-r--r--   1 ldap196 ldap196   18 Nov  9 14:55 .bash_logout
+-rw-r--r--   1 ldap196 ldap196  176 Nov  9 14:55 .bash_profile
+-rw-r--r--   1 ldap196 ldap196  124 Nov  9 14:55 .bashrc
+[m[ldap196@192.168.1.44 ~]$ q
+-bash: q: command not found
+[ldap196@192.168.1.44 ~]$ logout
+Endtime is 2015-11-10 10:16:42.912729

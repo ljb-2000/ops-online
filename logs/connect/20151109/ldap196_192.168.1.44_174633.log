@@ -1,0 +1,38 @@
+Starttime is 2015-11-09 17:46:33.230869
+Last login: Mon Nov  9 16:38:41 2015 from 192.168.3.39
+PS1='[\u@192.168.1.44 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[ldap196@android-market02 ~]$ PS1='[\u@192.168.1.44 \W]\$ '
+[ldap196@192.168.1.44 ~]$ clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.44 done. Enjoy it.[0m
+[ldap196@192.168.1.44 ~]$ sudo su -
+[root@android-market02 ~]# logout
+[ldap196@192.168.1.44 ~]$ sudo -yu[K[Ku work touch /data/
+123        bin/       conf/      db/        hids/      log/       pyenv/     repos/     server/    shell/     softwares/ web/       
+[ldap196@192.168.1.44 ~]$ sudo -u work touch /data/
+123        bin/       conf/      db/        hids/      log/       pyenv/     repos/     server/    shell/     softwares/ web/       
+[ldap196@192.168.1.44 ~]$ sudo -u work touch /data/server/ngx_openresty/
+bin/    luajit/ lualib/ nginx/  
+[ldap196@192.168.1.44 ~]$ sudo -u work touch /data/server/ngx_openresty/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K/123
+[ldap196@192.168.1.44 ~]$ cd /d
+data/ dev/  
+[ldap196@192.168.1.44 ~]$ cd /d
+data/ dev/  
+[ldap196@192.168.1.44 ~]$ cd /data/[K[K[K[K[K[K[K[K[Kcd /data/server/ngx_openresty/
+[ldap196@192.168.1.44 ngx_openresty]$ ls -al
+total 4
+drwxrwxr-x  6 work work   54 Jun  9 15:54 [0m[01;34m.[0m
+drwxr-xr-x  3 work work   36 Nov  9 17:49 [01;34m..[0m
+drwxrwxr-x  2 work work   18 Jun  9 15:54 [01;34mbin[0m
+drwxrwxr-x  6 work work   52 Jun  9 15:54 [01;34mluajit[0m
+drwxrwxr-x  5 work work   55 Jun  9 15:54 [01;34mlualib[0m
+drwxrwxr-x 12 work work 4096 Jun 17 11:17 [01;34mnginx[0m
+[m[ldap196@192.168.1.44 ngx_openresty]$ cd ..
+[ldap196@192.168.1.44 server]$ ls -al
+total 0
+drwxr-xr-x  3 work work  36 Nov  9 17:49 [0m[01;34m.[0m
+drwxrwxrwx 13 work work 142 Aug 13 14:10 [34;42m..[0m
+-rw-r--r--  1 work work   0 Nov  9 17:49 123
+drwxrwxr-x  6 work work  54 Jun  9 15:54 [01;34mngx_openresty[0m
+[m[ldap196@192.168.1.44 server]$ logout
+Endtime is 2015-11-09 17:50:05.585562

@@ -1,0 +1,302 @@
+Starttime is 2015-11-23 12:59:01.376659
+Last login: Mon Nov 23 12:58:43 2015 from 192.168.3.39
+PS1='[\u@192.168.1.146 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.146 done. Enjoy it.\033[0m'
+[ldap-test@android-shop01 ~]$ PS1='[\u@192.168.1.146 \W]\$ '
+[ldap-test@192.168.1.146 ~]$ clear;echo -e '\033[32mLogin 192.168.1.146 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.146 done. Enjoy it.[0m
+[ldap-test@192.168.1.146 ~]$ sudo su -
+[root@android-shop01 ~]# pwd
+/root
+[root@android-shop01 ~]# ll
+total 56
+-rw-------. 1 root root  1156 Sep 23  2014 anaconda-ks.cfg
+drwxr-xr-x  2 root root  4096 Jun  5 10:30 [0m[01;34minfor[0m
+-rw-r--r--. 1 root root 27312 Sep 23  2014 install.log
+-rw-r--r--. 1 root root  7572 Sep 23  2014 install.log.syslog
+lrwxrwxrwx. 1 root root    22 Sep 23  2014 [01;36mjava[0m -> [01;32m/etc/alternatives/java[0m
+-rw-r--r--  1 root root   787 Nov 13 10:33 ldap-client.sh
+drwxr-xr-x  2 root root  4096 Jun 11 17:09 [01;34mshell[0m
+[m[root@android-shop01 ~]# logout
+[ldap-test@192.168.1.146 ~]$ sudo su -[K[K[K[K-u work
+usage: sudo [-D level] -h | -K | -k | -V
+usage: sudo -v [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid]
+usage: sudo -l[l] [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-U user name] [-u user name|#uid] [-g groupname|#gid] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] [-g groupname|#gid] [VAR=value] [-i|-s] [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] file ...
+[ldap-test@192.168.1.146 ~]$ sudo -u work touch 123
+[sudo] password for ldap-test: 
+[ldap-test@192.168.1.146 ~]$ cd /data/
+aota/        appstore/    log/         personal/    server/      softwares/   tmp_apps/    
+appmarket/   hids/        mailService/ repos/       shell/       tmp/         webapp/      
+[ldap-test@192.168.1.146 ~]$ cd /data/repos/
+[ldap-test@192.168.1.146 repos]$ ll
+total 1780812
+-rw-r--r-- 1 work work 71525515 Nov 20 10:53 api.war
+-rwxrwxr-x 1 work work 57345759 May 18  2015 [0m[01;32mapi.war2015-06-17_16_48_12[0m
+-rw-r--r-- 1 work work 57135075 Jun 17 16:48 api.war2015-06-24_16_37_35
+-rw-r--r-- 1 work work 64377754 Jun 26 18:13 api.war2015-06-29_10_34_24
+-rw-r--r-- 1 work work 64377925 Jun 29 10:35 api.war2015-06-29_15_13_07
+-rw-r--r-- 1 work work 64377967 Jun 29 15:14 api.war2015-06-29_15_20_34
+-rw-r--r-- 1 work work 64377994 Jun 29 15:21 api.war2015-07-01_17_52_40
+-rw-r--r-- 1 work work 64468763 Jul  1 17:53 api.war2015-07-01_18_26_06
+-rw-r--r-- 1 work work   132480 Nov 20 18:54 [01;31mappstore-dashboard-flume-1.0.0-SNAPSHOT.jar[0m
+-rw-r--r-- 1 work work 80270722 Nov 19 15:41 cms.war
+-rw-r--r-- 1 work work 60624516 Jun 17 17:18 cms.war2015-06-29_10_46_46
+-rw-r--r-- 1 work work 67907507 Jun 29 10:47 cms.war2015-06-29_17_36_23
+-rw-r--r-- 1 work work 67995295 Jun 29 17:37 cms.war2015-06-29_17_48_35
+-rw-r--r-- 1 work work 67995297 Jun 29 17:49 cms.war2015-06-29_17_58_50
+-rw-r--r-- 1 work work 67995539 Jun 29 17:59 cms.war2015-06-29_18_11_22
+-rw-r--r-- 1 work work 67995716 Jun 29 18:12 cms.war2015-06-29_19_38_57
+-rw-r--r-- 1 work work 67907540 Jun 29 19:40 cms.war2015-07-01_16_33_26
+-rw-r--r-- 1 work work 67998648 Jul  1 16:34 cms.war2015-07-02_17_54_06
+-rw-r--r-- 1 work work 67998622 Jul  2 17:55 cms.war2015-07-15_15_57_08
+-rw-r--r-- 1 work work 74164553 Nov 23 11:05 cron.war
+-rw-r--r-- 1 work work      749 Oct  9 14:28 [01;31mdashboard-cron.tar.gz[0m
+-rw-r--r-- 1 work work 69715358 Jun 23 10:50 mobile.war2015-06-23_11_28_43
+-rw-r--r-- 1 work work 69715406 Jun 23 11:29 mobile.war2015-06-23_13_10_38
+-rw-r--r-- 1 work work 72722831 Nov  4 15:15 openApi.war
+-rw-r--r-- 1 work work 57093308 Jun 18 14:28 openApi.war2015-06-19_11_00_48
+-rw-r--r-- 1 work work 67580413 Oct 15 11:17 personalcloud.war
+-rw-r--r-- 1 work work 72127102 Nov  6 12:46 spider.war
+-rw-r--r-- 1 work work 72209996 Sep 18 19:25 web.war
+-rw-r--r-- 1 work work 75338501 Jun 25 10:12 web.war2015-06-25_17_57_30
+[m[ldap-test@192.168.1.146 repos]$ ls -al
+total 1780820
+drwxrwxrwx  2 work work     4096 Oct 16 19:34 [0m[34;42m.[0m
+drwxrwxrwx 16 work work     4096 Aug 13 14:20 [34;42m..[0m
+-rw-r--r--  1 work work 71525515 Nov 20 10:53 api.war
+-rwxrwxr-x  1 work work 57345759 May 18  2015 [01;32mapi.war2015-06-17_16_48_12[0m
+-rw-r--r--  1 work work 57135075 Jun 17 16:48 api.war2015-06-24_16_37_35
+-rw-r--r--  1 work work 64377754 Jun 26 18:13 api.war2015-06-29_10_34_24
+-rw-r--r--  1 work work 64377925 Jun 29 10:35 api.war2015-06-29_15_13_07
+-rw-r--r--  1 work work 64377967 Jun 29 15:14 api.war2015-06-29_15_20_34
+-rw-r--r--  1 work work 64377994 Jun 29 15:21 api.war2015-07-01_17_52_40
+-rw-r--r--  1 work work 64468763 Jul  1 17:53 api.war2015-07-01_18_26_06
+-rw-r--r--  1 work work   132480 Nov 20 18:54 [01;31mappstore-dashboard-flume-1.0.0-SNAPSHOT.jar[0m
+-rw-r--r--  1 work work 80270722 Nov 19 15:41 cms.war
+-rw-r--r--  1 work work 60624516 Jun 17 17:18 cms.war2015-06-29_10_46_46
+-rw-r--r--  1 work work 67907507 Jun 29 10:47 cms.war2015-06-29_17_36_23
+-rw-r--r--  1 work work 67995295 Jun 29 17:37 cms.war2015-06-29_17_48_35
+-rw-r--r--  1 work work 67995297 Jun 29 17:49 cms.war2015-06-29_17_58_50
+-rw-r--r--  1 work work 67995539 Jun 29 17:59 cms.war2015-06-29_18_11_22
+-rw-r--r--  1 work work 67995716 Jun 29 18:12 cms.war2015-06-29_19_38_57
+-rw-r--r--  1 work work 67907540 Jun 29 19:40 cms.war2015-07-01_16_33_26
+-rw-r--r--  1 work work 67998648 Jul  1 16:34 cms.war2015-07-02_17_54_06
+-rw-r--r--  1 work work 67998622 Jul  2 17:55 cms.war2015-07-15_15_57_08
+-rw-r--r--  1 work work 74164553 Nov 23 11:05 cron.war
+-rw-r--r--  1 work work      749 Oct  9 14:28 [01;31mdashboard-cron.tar.gz[0m
+-rw-r--r--  1 work work 69715358 Jun 23 10:50 mobile.war2015-06-23_11_28_43
+-rw-r--r--  1 work work 69715406 Jun 23 11:29 mobile.war2015-06-23_13_10_38
+-rw-r--r--  1 work work 72722831 Nov  4 15:15 openApi.war
+-rw-r--r--  1 work work 57093308 Jun 18 14:28 openApi.war2015-06-19_11_00_48
+-rw-r--r--  1 work work 67580413 Oct 15 11:17 personalcloud.war
+-rw-r--r--  1 work work 72127102 Nov  6 12:46 spider.war
+-rw-r--r--  1 work work 72209996 Sep 18 19:25 web.war
+-rw-r--r--  1 work work 75338501 Jun 25 10:12 web.war2015-06-25_17_57_30
+[m[ldap-test@192.168.1.146 repos]$ ll -h
+total 1.7G
+-rw-r--r-- 1 work work  69M Nov 20 10:53 api.war
+-rwxrwxr-x 1 work work  55M May 18  2015 [0m[01;32mapi.war2015-06-17_16_48_12[0m
+-rw-r--r-- 1 work work  55M Jun 17 16:48 api.war2015-06-24_16_37_35
+-rw-r--r-- 1 work work  62M Jun 26 18:13 api.war2015-06-29_10_34_24
+-rw-r--r-- 1 work work  62M Jun 29 10:35 api.war2015-06-29_15_13_07
+-rw-r--r-- 1 work work  62M Jun 29 15:14 api.war2015-06-29_15_20_34
+-rw-r--r-- 1 work work  62M Jun 29 15:21 api.war2015-07-01_17_52_40
+-rw-r--r-- 1 work work  62M Jul  1 17:53 api.war2015-07-01_18_26_06
+-rw-r--r-- 1 work work 130K Nov 20 18:54 [01;31mappstore-dashboard-flume-1.0.0-SNAPSHOT.jar[0m
+-rw-r--r-- 1 work work  77M Nov 19 15:41 cms.war
+-rw-r--r-- 1 work work  58M Jun 17 17:18 cms.war2015-06-29_10_46_46
+-rw-r--r-- 1 work work  65M Jun 29 10:47 cms.war2015-06-29_17_36_23
+-rw-r--r-- 1 work work  65M Jun 29 17:37 cms.war2015-06-29_17_48_35
+-rw-r--r-- 1 work work  65M Jun 29 17:49 cms.war2015-06-29_17_58_50
+-rw-r--r-- 1 work work  65M Jun 29 17:59 cms.war2015-06-29_18_11_22
+-rw-r--r-- 1 work work  65M Jun 29 18:12 cms.war2015-06-29_19_38_57
+-rw-r--r-- 1 work work  65M Jun 29 19:40 cms.war2015-07-01_16_33_26
+-rw-r--r-- 1 work work  65M Jul  1 16:34 cms.war2015-07-02_17_54_06
+-rw-r--r-- 1 work work  65M Jul  2 17:55 cms.war2015-07-15_15_57_08
+-rw-r--r-- 1 work work  71M Nov 23 11:05 cron.war
+-rw-r--r-- 1 work work  749 Oct  9 14:28 [01;31mdashboard-cron.tar.gz[0m
+-rw-r--r-- 1 work work  67M Jun 23 10:50 mobile.war2015-06-23_11_28_43
+-rw-r--r-- 1 work work  67M Jun 23 11:29 mobile.war2015-06-23_13_10_38
+-rw-r--r-- 1 work work  70M Nov  4 15:15 openApi.war
+-rw-r--r-- 1 work work  55M Jun 18 14:28 openApi.war2015-06-19_11_00_48
+-rw-r--r-- 1 work work  65M Oct 15 11:17 personalcloud.war
+-rw-r--r-- 1 work work  69M Nov  6 12:46 spider.war
+-rw-r--r-- 1 work work  69M Sep 18 19:25 web.war
+-rw-r--r-- 1 work work  72M Jun 25 10:12 web.war2015-06-25_17_57_30
+[m[ldap-test@192.168.1.146 repos]$ ll -hs -all[Kcd /data/repos/sudo -u work touch 123
+[sudo] password for ldap-test: 
+[ldap-test@192.168.1.146 repos]$ pwd
+/data/repos
+[ldap-test@192.168.1.146 repos]$ cd ..
+[ldap-test@192.168.1.146 data]$ ll
+total 48
+drwxrwxr-x  2 work work     30 Jun 10 14:03 [0m[01;34maota[0m
+drwxrwxr-x  5 work work     41 Jan 29  2015 [01;34mappmarket[0m
+drwxrwxr-x  5 work work     75 Jun 26 18:14 [01;34mappstore[0m
+dr-xr-x--- 10 root ossec   108 Aug 13 14:20 [01;34mhids[0m
+drwxr-xr-x  8 work work    102 Aug 28 19:04 [01;34mlog[0m
+drwxrwxr-x  3 work work     33 Jun  5 18:14 [01;34mmailService[0m
+drwxrwxr-x  4 work work     72 Sep 15 11:02 [01;34mpersonal[0m
+drwxrwxrwx  2 work work   4096 Oct 16 19:34 [34;42mrepos[0m
+drwxr-xr-x  9 work work   4096 Oct 20 16:40 [01;34mserver[0m
+drwxrwxr-x  2 work work     50 Jul 24 20:09 [01;34mshell[0m
+drwxr-xr-x  5 work work    136 Aug 28 19:02 [01;34msoftwares[0m
+drwxrwxr-x  3 work work     29 Apr 29  2015 [01;34mtmp[0m
+drwxr-xr-x  2 work work  16384 Nov 20 16:25 [01;34mtmp_apps[0m
+drwxrwxr-x 72 work work  16384 Nov 23 11:05 [01;34mwebapp[0m
+[m[ldap-test@192.168.1.146 data]$ l s-[K[K[Ks -al
+total 56
+drwxrwxrwx  16 work work   4096 Aug 13 14:20 [0m[34;42m.[0m
+dr-xr-xr-x. 27 root root   4096 Jun 10 17:27 [01;34m..[0m
+drwxrwxr-x   2 work work     30 Jun 10 14:03 [01;34maota[0m
+drwxrwxr-x   5 work work     41 Jan 29  2015 [01;34mappmarket[0m
+drwxrwxr-x   5 work work     75 Jun 26 18:14 [01;34mappstore[0m
+dr-xr-x---  10 root ossec   108 Aug 13 14:20 [01;34mhids[0m
+drwxr-xr-x   8 work work    102 Aug 28 19:04 [01;34mlog[0m
+drwxrwxr-x   3 work work     33 Jun  5 18:14 [01;34mmailService[0m
+drwxrwxr-x   4 work work     72 Sep 15 11:02 [01;34mpersonal[0m
+drwxrwxrwx   2 work work   4096 Oct 16 19:34 [34;42mrepos[0m
+drwxr-xr-x   9 work work   4096 Oct 20 16:40 [01;34mserver[0m
+drwxrwxr-x   2 work work     50 Jul 24 20:09 [01;34mshell[0m
+drwxr-xr-x   5 work work    136 Aug 28 19:02 [01;34msoftwares[0m
+drwxrwxr-x   3 work work     29 Apr 29  2015 [01;34mtmp[0m
+drwxr-xr-x   2 work work  16384 Nov 20 16:25 [01;34mtmp_apps[0m
+drwxrwxr-x  72 work work  16384 Nov 23 11:05 [01;34mwebapp[0m
+[m[ldap-test@192.168.1.146 data]$ cd repos/
+[ldap-test@192.168.1.146 repos]$ ls -al
+total 1780820
+drwxrwxrwx  2 work work     4096 Oct 16 19:34 [0m[34;42m.[0m
+drwxrwxrwx 16 work work     4096 Aug 13 14:20 [34;42m..[0m
+-rw-r--r--  1 work work 71525515 Nov 20 10:53 api.war
+-rwxrwxr-x  1 work work 57345759 May 18  2015 [01;32mapi.war2015-06-17_16_48_12[0m
+-rw-r--r--  1 work work 57135075 Jun 17 16:48 api.war2015-06-24_16_37_35
+-rw-r--r--  1 work work 64377754 Jun 26 18:13 api.war2015-06-29_10_34_24
+-rw-r--r--  1 work work 64377925 Jun 29 10:35 api.war2015-06-29_15_13_07
+-rw-r--r--  1 work work 64377967 Jun 29 15:14 api.war2015-06-29_15_20_34
+-rw-r--r--  1 work work 64377994 Jun 29 15:21 api.war2015-07-01_17_52_40
+-rw-r--r--  1 work work 64468763 Jul  1 17:53 api.war2015-07-01_18_26_06
+-rw-r--r--  1 work work   132480 Nov 20 18:54 [01;31mappstore-dashboard-flume-1.0.0-SNAPSHOT.jar[0m
+-rw-r--r--  1 work work 80270722 Nov 19 15:41 cms.war
+-rw-r--r--  1 work work 60624516 Jun 17 17:18 cms.war2015-06-29_10_46_46
+-rw-r--r--  1 work work 67907507 Jun 29 10:47 cms.war2015-06-29_17_36_23
+-rw-r--r--  1 work work 67995295 Jun 29 17:37 cms.war2015-06-29_17_48_35
+-rw-r--r--  1 work work 67995297 Jun 29 17:49 cms.war2015-06-29_17_58_50
+-rw-r--r--  1 work work 67995539 Jun 29 17:59 cms.war2015-06-29_18_11_22
+-rw-r--r--  1 work work 67995716 Jun 29 18:12 cms.war2015-06-29_19_38_57
+-rw-r--r--  1 work work 67907540 Jun 29 19:40 cms.war2015-07-01_16_33_26
+-rw-r--r--  1 work work 67998648 Jul  1 16:34 cms.war2015-07-02_17_54_06
+-rw-r--r--  1 work work 67998622 Jul  2 17:55 cms.war2015-07-15_15_57_08
+-rw-r--r--  1 work work 74164553 Nov 23 11:05 cron.war
+-rw-r--r--  1 work work      749 Oct  9 14:28 [01;31mdashboard-cron.tar.gz[0m
+-rw-r--r--  1 work work 69715358 Jun 23 10:50 mobile.war2015-06-23_11_28_43
+-rw-r--r--  1 work work 69715406 Jun 23 11:29 mobile.war2015-06-23_13_10_38
+-rw-r--r--  1 work work 72722831 Nov  4 15:15 openApi.war
+-rw-r--r--  1 work work 57093308 Jun 18 14:28 openApi.war2015-06-19_11_00_48
+-rw-r--r--  1 work work 67580413 Oct 15 11:17 personalcloud.war
+-rw-r--r--  1 work work 72127102 Nov  6 12:46 spider.war
+-rw-r--r--  1 work work 72209996 Sep 18 19:25 web.war
+-rw-r--r--  1 work work 75338501 Jun 25 10:12 web.war2015-06-25_17_57_30
+[m[ldap-test@192.168.1.146 repos]$ touch 123
+[ldap-test@192.168.1.146 repos]$ ls -al
+total 1780820
+drwxrwxrwx  2 work      work          4096 Nov 23 13:05 [0m[34;42m.[0m
+drwxrwxrwx 16 work      work          4096 Aug 13 14:20 [34;42m..[0m
+-rw-rw-r--  1 ldap-test ldap-test        0 Nov 23 13:05 123
+-rw-r--r--  1 work      work      71525515 Nov 20 10:53 api.war
+-rwxrwxr-x  1 work      work      57345759 May 18  2015 [01;32mapi.war2015-06-17_16_48_12[0m
+-rw-r--r--  1 work      work      57135075 Jun 17 16:48 api.war2015-06-24_16_37_35
+-rw-r--r--  1 work      work      64377754 Jun 26 18:13 api.war2015-06-29_10_34_24
+-rw-r--r--  1 work      work      64377925 Jun 29 10:35 api.war2015-06-29_15_13_07
+-rw-r--r--  1 work      work      64377967 Jun 29 15:14 api.war2015-06-29_15_20_34
+-rw-r--r--  1 work      work      64377994 Jun 29 15:21 api.war2015-07-01_17_52_40
+-rw-r--r--  1 work      work      64468763 Jul  1 17:53 api.war2015-07-01_18_26_06
+-rw-r--r--  1 work      work        132480 Nov 20 18:54 [01;31mappstore-dashboard-flume-1.0.0-SNAPSHOT.jar[0m
+-rw-r--r--  1 work      work      80270722 Nov 19 15:41 cms.war
+-rw-r--r--  1 work      work      60624516 Jun 17 17:18 cms.war2015-06-29_10_46_46
+-rw-r--r--  1 work      work      67907507 Jun 29 10:47 cms.war2015-06-29_17_36_23
+-rw-r--r--  1 work      work      67995295 Jun 29 17:37 cms.war2015-06-29_17_48_35
+-rw-r--r--  1 work      work      67995297 Jun 29 17:49 cms.war2015-06-29_17_58_50
+-rw-r--r--  1 work      work      67995539 Jun 29 17:59 cms.war2015-06-29_18_11_22
+-rw-r--r--  1 work      work      67995716 Jun 29 18:12 cms.war2015-06-29_19_38_57
+-rw-r--r--  1 work      work      67907540 Jun 29 19:40 cms.war2015-07-01_16_33_26
+-rw-r--r--  1 work      work      67998648 Jul  1 16:34 cms.war2015-07-02_17_54_06
+-rw-r--r--  1 work      work      67998622 Jul  2 17:55 cms.war2015-07-15_15_57_08
+-rw-r--r--  1 work      work      74164553 Nov 23 11:05 cron.war
+-rw-r--r--  1 work      work           749 Oct  9 14:28 [01;31mdashboard-cron.tar.gz[0m
+-rw-r--r--  1 work      work      69715358 Jun 23 10:50 mobile.war2015-06-23_11_28_43
+-rw-r--r--  1 work      work      69715406 Jun 23 11:29 mobile.war2015-06-23_13_10_38
+-rw-r--r--  1 work      work      72722831 Nov  4 15:15 openApi.war
+-rw-r--r--  1 work      work      57093308 Jun 18 14:28 openApi.war2015-06-19_11_00_48
+-rw-r--r--  1 work      work      67580413 Oct 15 11:17 personalcloud.war
+-rw-r--r--  1 work      work      72127102 Nov  6 12:46 spider.war
+-rw-r--r--  1 work      work      72209996 Sep 18 19:25 web.war
+-rw-r--r--  1 work      work      75338501 Jun 25 10:12 web.war2015-06-25_17_57_30
+[m[ldap-test@192.168.1.146 repos]$ rm -rf 123 
+[ldap-test@192.168.1.146 repos]$ ll
+total 1780812
+-rw-r--r-- 1 work work 71525515 Nov 20 10:53 api.war
+-rwxrwxr-x 1 work work 57345759 May 18  2015 [0m[01;32mapi.war2015-06-17_16_48_12[0m
+-rw-r--r-- 1 work work 57135075 Jun 17 16:48 api.war2015-06-24_16_37_35
+-rw-r--r-- 1 work work 64377754 Jun 26 18:13 api.war2015-06-29_10_34_24
+-rw-r--r-- 1 work work 64377925 Jun 29 10:35 api.war2015-06-29_15_13_07
+-rw-r--r-- 1 work work 64377967 Jun 29 15:14 api.war2015-06-29_15_20_34
+-rw-r--r-- 1 work work 64377994 Jun 29 15:21 api.war2015-07-01_17_52_40
+-rw-r--r-- 1 work work 64468763 Jul  1 17:53 api.war2015-07-01_18_26_06
+-rw-r--r-- 1 work work   132480 Nov 20 18:54 [01;31mappstore-dashboard-flume-1.0.0-SNAPSHOT.jar[0m
+-rw-r--r-- 1 work work 80270722 Nov 19 15:41 cms.war
+-rw-r--r-- 1 work work 60624516 Jun 17 17:18 cms.war2015-06-29_10_46_46
+-rw-r--r-- 1 work work 67907507 Jun 29 10:47 cms.war2015-06-29_17_36_23
+-rw-r--r-- 1 work work 67995295 Jun 29 17:37 cms.war2015-06-29_17_48_35
+-rw-r--r-- 1 work work 67995297 Jun 29 17:49 cms.war2015-06-29_17_58_50
+-rw-r--r-- 1 work work 67995539 Jun 29 17:59 cms.war2015-06-29_18_11_22
+-rw-r--r-- 1 work work 67995716 Jun 29 18:12 cms.war2015-06-29_19_38_57
+-rw-r--r-- 1 work work 67907540 Jun 29 19:40 cms.war2015-07-01_16_33_26
+-rw-r--r-- 1 work work 67998648 Jul  1 16:34 cms.war2015-07-02_17_54_06
+-rw-r--r-- 1 work work 67998622 Jul  2 17:55 cms.war2015-07-15_15_57_08
+-rw-r--r-- 1 work work 74164553 Nov 23 11:05 cron.war
+-rw-r--r-- 1 work work      749 Oct  9 14:28 [01;31mdashboard-cron.tar.gz[0m
+-rw-r--r-- 1 work work 69715358 Jun 23 10:50 mobile.war2015-06-23_11_28_43
+-rw-r--r-- 1 work work 69715406 Jun 23 11:29 mobile.war2015-06-23_13_10_38
+-rw-r--r-- 1 work work 72722831 Nov  4 15:15 openApi.war
+-rw-r--r-- 1 work work 57093308 Jun 18 14:28 openApi.war2015-06-19_11_00_48
+-rw-r--r-- 1 work work 67580413 Oct 15 11:17 personalcloud.war
+-rw-r--r-- 1 work work 72127102 Nov  6 12:46 spider.war
+-rw-r--r-- 1 work work 72209996 Sep 18 19:25 web.war
+-rw-r--r-- 1 work work 75338501 Jun 25 10:12 web.war2015-06-25_17_57_30
+[m[ldap-test@192.168.1.146 repos]$ pwd
+/data/repos
+[ldap-test@192.168.1.146 repos]$ ll
+total 1780812
+-rw-r--r-- 1 work work 71525515 Nov 20 10:53 api.war
+-rwxrwxr-x 1 work work 57345759 May 18  2015 [0m[01;32mapi.war2015-06-17_16_48_12[0m
+-rw-r--r-- 1 work work 57135075 Jun 17 16:48 api.war2015-06-24_16_37_35
+-rw-r--r-- 1 work work 64377754 Jun 26 18:13 api.war2015-06-29_10_34_24
+-rw-r--r-- 1 work work 64377925 Jun 29 10:35 api.war2015-06-29_15_13_07
+-rw-r--r-- 1 work work 64377967 Jun 29 15:14 api.war2015-06-29_15_20_34
+-rw-r--r-- 1 work work 64377994 Jun 29 15:21 api.war2015-07-01_17_52_40
+-rw-r--r-- 1 work work 64468763 Jul  1 17:53 api.war2015-07-01_18_26_06
+-rw-r--r-- 1 work work   132480 Nov 20 18:54 [01;31mappstore-dashboard-flume-1.0.0-SNAPSHOT.jar[0m
+-rw-r--r-- 1 work work 80270722 Nov 19 15:41 cms.war
+-rw-r--r-- 1 work work 60624516 Jun 17 17:18 cms.war2015-06-29_10_46_46
+-rw-r--r-- 1 work work 67907507 Jun 29 10:47 cms.war2015-06-29_17_36_23
+-rw-r--r-- 1 work work 67995295 Jun 29 17:37 cms.war2015-06-29_17_48_35
+-rw-r--r-- 1 work work 67995297 Jun 29 17:49 cms.war2015-06-29_17_58_50
+-rw-r--r-- 1 work work 67995539 Jun 29 17:59 cms.war2015-06-29_18_11_22
+-rw-r--r-- 1 work work 67995716 Jun 29 18:12 cms.war2015-06-29_19_38_57
+-rw-r--r-- 1 work work 67907540 Jun 29 19:40 cms.war2015-07-01_16_33_26
+-rw-r--r-- 1 work work 67998648 Jul  1 16:34 cms.war2015-07-02_17_54_06
+-rw-r--r-- 1 work work 67998622 Jul  2 17:55 cms.war2015-07-15_15_57_08
+-rw-r--r-- 1 work work 74164553 Nov 23 11:05 cron.war
+-rw-r--r-- 1 work work      749 Oct  9 14:28 [01;31mdashboard-cron.tar.gz[0m
+-rw-r--r-- 1 work work 69715358 Jun 23 10:50 mobile.war2015-06-23_11_28_43
+-rw-r--r-- 1 work work 69715406 Jun 23 11:29 mobile.war2015-06-23_13_10_38
+-rw-r--r-- 1 work work 72722831 Nov  4 15:15 openApi.war
+-rw-r--r-- 1 work work 57093308 Jun 18 14:28 openApi.war2015-06-19_11_00_48
+-rw-r--r-- 1 work work 67580413 Oct 15 11:17 personalcloud.war
+-rw-r--r-- 1 work work 72127102 Nov  6 12:46 spider.war
+-rw-r--r-- 1 work work 72209996 Sep 18 19:25 web.war
+-rw-r--r-- 1 work work 75338501 Jun 25 10:12 web.war2015-06-25_17_57_30
+[m[ldap-test@192.168.1.146 repos]$ logout
+Endtime is 2015-11-23 13:00:43.706828

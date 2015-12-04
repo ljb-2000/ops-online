@@ -1,0 +1,9 @@
+Starttime is 2015-11-23 12:54:58.883606
+Creating home directory for ldap-test.
+PS1='[\u@192.168.1.147 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.147 done. Enjoy it.\033[0m'
+[ldap-test@android-shop02 ~]$ PS1='[\u@192.168.1.147 \W]\$ '
+[ldap-test@192.168.1.147 ~]$ clear;echo -e '\033[32mLogin 192.168.1.147 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.147 done. Enjoy it.[0m
+[ldap-test@192.168.1.147 ~]$ logout
+Endtime is 2015-11-23 12:55:00.259181

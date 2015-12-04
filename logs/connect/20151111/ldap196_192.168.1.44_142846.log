@@ -1,0 +1,43 @@
+Starttime is 2015-11-11 14:28:46.814352
+PS1='[\u@192.168.1.44 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+Last login: Tue Nov 10 10:39:36 2015 from 192.168.3.39
+[ldap196@android-market02 ~]$ PS1='[\u@192.168.1.44 \W]\$ '
+[ldap196@192.168.1.44 ~]$ clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.44 done. Enjoy it.[0m
+[ldap196@192.168.1.44 ~]$ ls -al
+total 28
+drwxr-xr-x   2 ldap196 ldap196 4096 Nov  9 14:55 [0m[01;34m.[0m
+drwxr-xr-x. 12 root    root    4096 Nov  9 16:14 [01;34m..[0m
+-rw-------   1 ldap196 ldap196 4666 Nov 10 10:39 .bash_history
+-rw-r--r--   1 ldap196 ldap196   18 Nov  9 14:55 .bash_logout
+-rw-r--r--   1 ldap196 ldap196  176 Nov  9 14:55 .bash_profile
+-rw-r--r--   1 ldap196 ldap196  124 Nov  9 14:55 .bashrc
+[m[ldap196@192.168.1.44 ~]$ sudo -[Ksu -
+[root@android-market02 ~]# ll
+total 52
+-rw-------. 1 root root  1156 Sep 23  2014 anaconda-ks.cfg
+drwxr-xr-x  2 root root  4096 Jun  5 10:31 [0m[01;34minfor[0m
+-rw-r--r--. 1 root root 27312 Sep 23  2014 install.log
+-rw-r--r--. 1 root root  7572 Sep 23  2014 install.log.syslog
+lrwxrwxrwx. 1 root root    22 Sep 23  2014 [01;36mjava[0m -> [01;32m/etc/alternatives/java[0m
+drwxr-xr-x  2 root root  4096 Jan 28  2015 [01;34mshell[0m
+[m[root@android-market02 ~]# rz -be
+rz waiting to receive.**B0100000063f694Š**B0100000063f694Š**B0100000063f694Š**B0100000063f694Š**B0800000000022dŠ[root@android-market02 ~]# ll
+total 52
+-rw-------. 1 root root  1156 Sep 23  2014 anaconda-ks.cfg
+drwxr-xr-x  2 root root  4096 Jun  5 10:31 [0m[01;34minfor[0m
+-rw-r--r--. 1 root root 27312 Sep 23  2014 install.log
+-rw-r--r--. 1 root root  7572 Sep 23  2014 install.log.syslog
+lrwxrwxrwx. 1 root root    22 Sep 23  2014 [01;36mjava[0m -> [01;32m/etc/alternatives/java[0m
+drwxr-xr-x  2 root root  4096 Jan 28  2015 [01;34mshell[0m
+[m[root@android-market02 ~]# llrz -be
+rz waiting to receive.**B0100000063f694Š**B0800000000022dŠ[root@android-market02 ~]# ll
+total 52
+-rw-------. 1 root root  1156 Sep 23  2014 anaconda-ks.cfg
+drwxr-xr-x  2 root root  4096 Jun  5 10:31 [0m[01;34minfor[0m
+-rw-r--r--. 1 root root 27312 Sep 23  2014 install.log
+-rw-r--r--. 1 root root  7572 Sep 23  2014 install.log.syslog
+lrwxrwxrwx. 1 root root    22 Sep 23  2014 [01;36mjava[0m -> [01;32m/etc/alternatives/java[0m
+drwxr-xr-x  2 root root  4096 Jan 28  2015 [01;34mshell[0m
+[m[root@android-market02 ~]# [K[root@android-market02 ~]# 

@@ -1,0 +1,19 @@
+Starttime is 2015-11-05 10:34:09.905093
+Creating home directory for ldap197.
+PS1='[\u@192.168.3.77 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.77 done. Enjoy it.\033[0m'
+[ldap197@ops-master ~]$ PS1='[\u@192.168.3.77 \W]\$ '
+[ldap197@192.168.3.77 ~]$ clear;echo -e '\033[32mLogin 192.168.3.77 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.77 done. Enjoy it.[0m
+[ldap197@192.168.3.77 ~]$ lks -[K[K[K[Ks -al
+total 20
+drwxr-xr-x  2 ldap197 ldap197 4096 Nov  5 10:35 [0m[01;34m.[0m
+drwxr-xr-x. 9 root    root    4096 Nov  5 10:35 [01;34m..[0m
+-rw-r--r--  1 ldap197 ldap197   18 Nov  5 10:35 .bash_logout
+-rw-r--r--  1 ldap197 ldap197  176 Nov  5 10:35 .bash_profile
+-rw-r--r--  1 ldap197 ldap197  124 Nov  5 10:35 .bashrc
+[m[ldap197@192.168.3.77 ~]$ cd
+[ldap197@192.168.3.77 ~]$ ll
+total 0
+[ldap197@192.168.3.77 ~]$ logout
+Endtime is 2015-11-05 10:37:25.469503

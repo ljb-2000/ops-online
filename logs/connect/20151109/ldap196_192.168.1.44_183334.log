@@ -1,0 +1,22 @@
+Starttime is 2015-11-09 18:33:34.793545
+Last login: Mon Nov  9 17:59:13 2015 from 192.168.3.39
+PS1='[\u@192.168.1.44 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[ldap196@android-market02 ~]$ PS1='[\u@192.168.1.44 \W]\$ '
+[ldap196@192.168.1.44 ~]$ clear;echo -e '\033[32mLogin 192.168.1.44 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.1.44 done. Enjoy it.[0m
+[ldap196@192.168.1.44 ~]$ sudo - u[K[Ku work
+usage: sudo [-D level] -h | -K | -k | -V
+usage: sudo -v [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid]
+usage: sudo -l[l] [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-U user name] [-u user name|#uid] [-g groupname|#gid] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] [-g groupname|#gid] [VAR=value] [-i|-s]
+            [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] file ...
+[ldap196@192.168.1.44 ~]$ [H[J[ldap196@192.168.1.44 ~]$ sudo -u work touch /data/server/
+123            ngx_openresty/ 
+[ldap196@192.168.1.44 ~]$ sudo -u work touch /data/server/
+123            ngx_openresty/ 
+[ldap196@192.168.1.44 ~]$ sudo -u work touch /data/server/ 123123[K[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K su -
+[root@android-market02 ~]# logout
+[ldap196@192.168.1.44 ~]$ logout
+Endtime is 2015-11-09 18:57:14.453816

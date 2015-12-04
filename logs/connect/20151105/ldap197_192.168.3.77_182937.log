@@ -1,0 +1,54 @@
+Starttime is 2015-11-05 18:29:37.588915
+Last login: Thu Nov  5 17:01:27 2015 from ops.tcloud.com
+PS1='[\u@192.168.3.77 \W]\$ '
+clear;echo -e '\033[32mLogin 192.168.3.77 done. Enjoy it.\033[0m'
+[ldap197@ops-master ~]$ PS1='[\u@192.168.3.77 \W]\$ '
+[ldap197@192.168.3.77 ~]$ clear;echo -e '\033[32mLogin 192.168.3.77 done. Enjoy it.\033[0m'
+[H[J[32mLogin 192.168.3.77 done. Enjoy it.[0m
+[ldap197@192.168.3.77 ~]$ ls -al
+total 24
+drwxr-xr-x  2 ldap197 ldap197 4096 Nov  5 10:38 [0m[01;34m.[0m
+drwxr-xr-x. 9 root    root    4096 Nov  5 10:35 [01;34m..[0m
+-rw-------  1 ldap197 ldap197 1953 Nov  5 17:01 .bash_history
+-rw-r--r--  1 ldap197 ldap197   18 Nov  5 10:35 .bash_logout
+-rw-r--r--  1 ldap197 ldap197  176 Nov  5 10:35 .bash_profile
+-rw-r--r--  1 ldap197 ldap197  124 Nov  5 10:35 .bashrc
+[m[ldap197@192.168.3.77 ~]$ sudo su -
+[sudo] password for ldap197: 
+[ldap197@192.168.3.77 ~]$ sudo -u work /[Ktouch /data/
+log/       repos/     server/    softwares/ 
+[ldap197@192.168.3.77 ~]$ sudo -u work touch /data/s
+server/    softwares/ 
+[ldap197@192.168.3.77 ~]$ sudo -u work touch /data/s
+server/    softwares/ 
+[ldap197@192.168.3.77 ~]$ sudo -u work touch /data/server/123
+[sudo] password for ldap197: 
+
+
+l^H^CSorry, try again.
+[sudo] password for ldap197: 
+
+
+^C
+Sorry, try again.
+[sudo] password for ldap197: 
+
+
+^C
+Sorry, try again.
+sudo: 3 incorrect password attempts
+[ldap197@192.168.3.77 ~]$ 
+[ldap197@192.168.3.77 ~]$ pwd
+/home/ldap197
+[ldap197@192.168.3.77 ~]$ ll
+total 0
+[ldap197@192.168.3.77 ~]$ ls =-[K[K-al
+total 24
+drwxr-xr-x  2 ldap197 ldap197 4096 Nov  5 10:38 [0m[01;34m.[0m
+drwxr-xr-x. 9 root    root    4096 Nov  5 10:35 [01;34m..[0m
+-rw-------  1 ldap197 ldap197 1953 Nov  5 17:01 .bash_history
+-rw-r--r--  1 ldap197 ldap197   18 Nov  5 10:35 .bash_logout
+-rw-r--r--  1 ldap197 ldap197  176 Nov  5 10:35 .bash_profile
+-rw-r--r--  1 ldap197 ldap197  124 Nov  5 10:35 .bashrc
+[m[ldap197@192.168.3.77 ~]$ i[Klogout
+Endtime is 2015-11-05 18:33:25.010212

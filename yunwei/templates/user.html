@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="Will Zhao Modify">
+        <link rel="shortcut icon" href="/static/images/favicon.png" type="/static/image/png">
+
+        <title>OPS 管理系统-用户管理</title>
+
+        <link href="/static/css/style.default.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+{% load mytags %}
+
+        <section>
+
+            <div class="leftpanel">
+
+                <div class="logopanel">
+                    <h1><span>[</span> Tcloud运维管理平台 <span>]</span></h1>
+                </div>
+
+                <div class="leftpanelinner">
+
+                    <div class="visible-xs hidden-sm hidden-md hidden-lg">   
+                        <div class="media userlogged">
+                            <img alt="" src="/static/images/loggeduser.png" class="media-object">
+                            <div class="media-body">
+                                <h4>John Doe</h4>
+                                <span>"Life is so..."</span>
+                            </div>
+                        </div>
+
+                        <h5 class="sidebartitle actitle"></h5>
+                        <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+                            <li><a href="/logout/"><i class="fa fa-sign-out"></i> <span>退出</span></a></li>
+                        </ul>
+                    </div>
+
+                    <h5 class="sidebartitle">导航</h5>
+                    <ul class="nav nav-pills nav-stacked nav-bracket">
+                        <li><a href="/dashboard/"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                        <li><a href="/tcloudvm/"><i class="fa fa-fax"></i> <span>虚机申请</span></a></li>
+                        <li><a href="/codedeploy/"><i class="fa fa-file-code-o"></i> <span>代码部署</span></a></li>
+                        <li><a href="/cmdb/"><i class="fa fa-keyboard-o"></i> <span>资产列表</span></a></li>
+                        <li><a href="/saltstack/"><i class="fa fa-laptop"></i> <span>任务管理</span></a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> <span>用户管理</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dept_list dept_edit"><a href="/ldapuser/dept_list/">查看部门</a></li>
+                                <li class="dept_add"><a href="/ldapuser/dept_add/">添加部门</a></li>
+                                <li class="group_list group_edit"><a href="/ldapuser/group_list/">查看小组</a></li>
+                                <li class="group_add"><a href="/ldapuser/group_add/">添加小组</a></li>
+                                <li class="user_list user_edit user_detail"><a href="/ldapuser/user_list/">查看用户</a></li>
+                                <li class="user_add"><a href="/ldapuser/user_add/">添加用户</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/authority/"><i class="fa fa-lock"></i> <span>权限管理</span></a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="mainpanel">
+
+                <div class="headerbar">
+
+                    <a class="menutoggle"><i class="fa fa-bars"></i></a>
+
+                    <div class="header-right">
+                        <ul class="headermenu">
+                            <li>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <img src="/static/images/loggeduser.png" alt="" />
+                                         {{user.username}}
+                                    </button>
+                                </div>
+                            </li>
+                            <li>
+                                <button id="btn_sys_logout" class="btn btn-default tp-icon chat-icon" title="退出">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="pageheader">
+                    <h2><i class="fa fa-users"></i> 部门编辑<span></span></h2>
+                    <div class="breadcrumb-wrapper">
+                        <span class="label">You are here:</span>
+                        <ol class="breadcrumb">
+                            <li><a href="/dashboard/">OPS</a></li>
+                            <li class="active">用户管理</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="contentpanel">
+	<div class="wrapper wrapper-content animated fadeInRight">
+    	<div class="row">
+        <div class="col-lg-10">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> 查看部门 </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">未启用 1</a>
+                            </li>
+                            <li><a href="#">未启用 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="">
+                    <a target="_blank" href="/ldapuser/dept_add/" class="btn btn-sm btn-primary "> 添加部门 </a>
+                    <a id="del_btn" class="btn btn-sm btn-danger"> 删除所选 </a>
+                    <form id="search_form" method="get" action="" class="pull-right mail-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" id="search_input" name="search" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button id='search_btn' type="submit" class="btn btn-sm btn-primary">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover " id="editable" >
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <input type="checkbox" id="select_all" onclick="selectAll()"  name="select_all">
+                                </th>
+                                <th class="text-center">部门名称</th>
+                                <th class="text-center">小组数目</th>
+                                <th class="text-center">成员数目</th>
+                                <th class="text-center">主机数目</th>
+                                <th class="text-center">备注</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for dept in contacts.object_list %}
+                            <tr class="gradeX">
+                                <td class="text-center">
+                                    <input type="checkbox"  name="selected" value="{{ dept.id }}">
+                                </td>
+                                <td class="text-center"> {{ dept.name }} </td>
+                                <td class="text-center"> <a href="/ldapuser/group_list/?did={{ dept.id }}">{{ dept.id | dept_group_num }}</a> </td>
+                                <td class="text-center"> <a href="/ldapuser/user_list/?did={{ dept.id }}">{{ dept.id | dept_user_num}} </a> </td>
+                                <td class="text-center"> {{ dept.id | dept_asset_num}} </td>
+                                <td class="text-center"> {{ dept.comment }} </td>
+                                <td class="text-center">
+                                    <a href="../dept_detail/?id={{ dept.id }}" class="btn btn-xs btn-primary">详情</a>
+                                    <a href="../dept_edit/?id={{ dept.id }}" class="btn btn-xs btn-info">编辑</a>
+                                    <a href="../dept_del/?id={{ dept.id }}" class="btn btn-xs btn-danger">删除</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_info" id="editable_info" role="status" aria-live="polite">
+                                Showing {{ contacts.start_index }} to {{ contacts.end_index }} of {{ p.count }} entries
+                            </div>
+                        </div>
+                        {% include 'paginator.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <script src="/static/js/jquery-1.11.1.min.js"></script>
+        <script src="/static/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/modernizr.min.js"></script>
+        <script src="/static/js/jquery.sparkline.min.js"></script>
+        <script src="/static/js/toggles.min.js"></script>
+        <script src="/static/js/retina.min.js"></script>
+        <script src="/static/js/jquery.cookies.js"></script>
+        <script src="/static/js/custom.js"></script>
+
+    </body>
+
+<script>
+    $(document).ready(function(){
+        $(".iframe").colorbox({iframe:true, width:"70%", height:"70%"});
+        var check_array = []
+        $('#del_btn').click(function(){
+            if (confirm("确定删除")) {
+                $(".gradeX input:checked").each(function() {check_array.push($(this).attr("value")) })
+                $(".gradeX input:checked").closest("tr").remove()
+                $.post("ldapjuser/dept_del_ajax/",
+                    {dept_ids: check_array.join(",")},
+                    function(data){
+                        alert(data)
+                    }
+                )
+            }
+
+        })
+
+    });
+</script>
+
+</html>

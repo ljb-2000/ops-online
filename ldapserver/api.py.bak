@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+#coding: utf-8
+
+import ldap
+
+LDAP_HOST = 'mie-bj-ldap-2'
+LDAP_BASE_DN = 'dc=tcloud,dc=com'
+MGR_CRED = 'cn=admin,dc=tcloud,dc=com'
+MGR_PASSWD = 'secret234'
+STOOGE_FILTER = 'o=stooges'
+
+class LDAPMgmt:
+      
+    def __init__(self, ldap_host=None, ldap_base_dn=None, mgr_cred=None,mgr_passwd=None):
+        if not ldap_host:
+            ldap_host = LDAP_HOST
+        if not ldap_base_dn:
+            ldap_base_dn = LDAP_BASE_DN
+        if not mgr_cred:
+            mgr_cred = MGR_CRED
+        if not mgr_passwd:
+            mgr_passwd = MGR_PASSWD
+        self.ldapconn = ldap.open(ldap_host)
+        self.ldapconn.simple_bind(mgr_cred, mgr_passwd)
+        self.ldap_base_dn = ldap_base_dn
+      
+    def list(self, stooge_filter=None, attrib=None):
+        if not stooge_filter:
+            stooge_filter = STOOGE_FILTER
+        s = self.ldapconn.search_s(self.ldap_base_dn, ldap.SCOPE_SUBTREE,stooge_filter, attrib)
+        stooge_list = []
+        for stooge in s:
+            attrib_dict = stooge[1]
+            for a in attrib:
+                out = "%s: %s" % (a, attrib_dict[a])
+                print out
+                stooge_list.append(out)
+            return stooge_list
+      
+    def add(self, name, ou, info):
+        dn = 'cn=%s,ou=%s,%s' % (name, ou, self.ldap_base_dn)
+        attrib = [(k, v) for (k, v) in info.items()]
+        self.ldapconn.add_s(dn, attrib)    
+      
+    def modify(self, name, ou, attrib):
+        dn = 'cn=%s,ou=%s,%s' % (name, ou, self.ldap_base_dn)
+        self.ldapconn.modify_s(dn, attrib)    
+      
+    def delete(self, name, ou):
+        dn = 'cn=%s,ou=%s,%s' % (name, ou, self.ldap_base_dn)
+        self.ldapconn.delete_s(dn)
+
+
+
+
